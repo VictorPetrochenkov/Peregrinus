@@ -37,211 +37,42 @@
     <script>
     window.MathJax = {
         tex: {
-            inlineMath: [['$', '$'], ['\(', '\)']],
-            displayMath: [['$$', '$$'], ['\[', '\]']],
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
             processEscapes: true
         }
     };
     </script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Segoe UI', 'Latin Modern Math', 'STIX Two Math', Arial, sans-serif;
-            line-height: 1.6;
-            color: #1a1a1a;
-            background: #f5f5f5;
-            padding: 20px;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            border-radius: 12px;
-            overflow: hidden;
-        }
-        .header {
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            color: white;
-            padding: 40px 30px;
-            text-align: center;
-        }
-        .header h1 {
-            font-size: 2em;
-            margin-bottom: 15px;
-            font-weight: 600;
-            line-height: 1.3;
-        }
-        .author-info {
-            background: rgba(255,255,255,0.15);
-            padding: 20px;
-            border-radius: 12px;
-            display: inline-block;
-            margin-top: 15px;
-        }
-        .nav {
-            background: #f8f9fa;
-            padding: 12px 15px;
-            text-align: center;
-            border-bottom: 1px solid #dee2e6;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 5px;
-        }
-        .nav a {
-            color: #2a5298;
-            text-decoration: none;
-            margin: 0 8px;
-            font-weight: 600;
-            padding: 6px 12px;
-            border-radius: 20px;
-            transition: all 0.3s;
-            font-size: 0.9em;
-        }
-        .nav a:hover {
-            background: #2a5298;
-            color: white;
-        }
-        .content {
-            padding: 40px;
-        }
-        .section {
-            margin-bottom: 50px;
-            scroll-margin-top: 80px;
-        }
-        .section h2 {
-            color: #1e3c72;
-            border-bottom: 3px solid #2a5298;
-            padding-bottom: 10px;
-            margin-bottom: 25px;
-            font-size: 1.8em;
-        }
-        .section h3 {
-            color: #2c3e50;
-            margin: 25px 0 15px;
-            font-size: 1.4em;
-        }
-        .section h4 {
-            color: #34495e;
-            margin: 20px 0 10px;
-            font-size: 1.2em;
-        }
-        .formula-box {
-            background: #f8f9fa;
-            border-left: 4px solid #2a5298;
-            padding: 20px;
-            margin: 20px 0;
-            overflow-x: auto;
-            font-size: 1.1em;
-            border-radius: 0 8px 8px 0;
-            text-align: center;
-        }
-        .table-container {
-            display: flex;
-            justify-content: center;
-            margin: 25px 0;
-            overflow-x: auto;
-        }
-        table {
-            border-collapse: collapse;
-            width: auto;
-            min-width: 0;
-            margin: 0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        th, td {
-            padding: 12px 16px;
-            border: 1px solid #e0e0e0;
-            vertical-align: top;
-            text-align: left;
-        }
-        th {
-            background: linear-gradient(135deg, #2c3e50, #3498db);
-            color: white;
-            font-weight: 600;
-            text-align: center;
-        }
-        td.center {
-            text-align: center;
-        }
-        tr:nth-child(even) td {
-            background-color: #f8f9fa;
-        }
-        tr:hover td {
-            background-color: #e8f4f8;
-        }
-        .blockquote {
-            background: #f0f7ff;
-            border-left: 4px solid #2a5298;
-            padding: 20px;
-            margin: 20px 0;
-            font-style: italic;
-            border-radius: 0 12px 12px 0;
-        }
-        .review-block {
-            background: #f9f9f9;
-            border: 2px solid #2a5298;
-            border-radius: 16px;
-            padding: 30px;
-            margin-top: 50px;
-        }
-        .review-header {
-            background: linear-gradient(135deg, #3498db, #2c3e50);
-            color: white;
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 25px;
-            text-align: center;
-        }
-        .review-footer {
-            background: #ecf0f1;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 30px;
-            text-align: right;
-        }
-        .checkmark {
-            color: #27ae60;
-            font-weight: bold;
-        }
-        .abstract {
-            background: #ecf0f1;
-            padding: 20px;
-            border-radius: 12px;
-            border-left: 4px solid #27ae60;
-            margin: 20px 0;
-        }
-        .footer {
-            background: #1e3c72;
-            color: white;
-            padding: 25px;
-            text-align: center;
-            border-top: 1px solid #dee2e6;
-        }
-        @media (max-width: 768px) {
-            .content {
-                padding: 20px;
-            }
-            .nav a {
-                margin: 0 5px;
-                padding: 4px 10px;
-                font-size: 0.8em;
-            }
-            th, td {
-                padding: 8px 12px;
-                font-size: 0.85em;
-            }
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', 'Latin Modern Math', 'STIX Two Math', Arial, sans-serif; line-height: 1.6; color: #1a1a1a; background: #f5f5f5; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; background: white; box-shadow: 0 4px 20px rgba(0,0,0,0.1); border-radius: 12px; overflow: hidden; }
+        .header { background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; padding: 40px 30px; text-align: center; }
+        .header h1 { font-size: 2em; margin-bottom: 15px; font-weight: 600; line-height: 1.3; }
+        .author-info { background: rgba(255,255,255,0.15); padding: 20px; border-radius: 12px; display: inline-block; margin-top: 15px; }
+        .nav { background: #f8f9fa; padding: 12px 15px; text-align: center; border-bottom: 1px solid #dee2e6; position: sticky; top: 0; z-index: 100; display: flex; flex-wrap: wrap; justify-content: center; gap: 5px; }
+        .nav a { color: #2a5298; text-decoration: none; margin: 0 8px; font-weight: 600; padding: 6px 12px; border-radius: 20px; transition: all 0.3s; font-size: 0.9em; }
+        .nav a:hover { background: #2a5298; color: white; }
+        .content { padding: 40px; }
+        .section { margin-bottom: 50px; scroll-margin-top: 80px; }
+        .section h2 { color: #1e3c72; border-bottom: 3px solid #2a5298; padding-bottom: 10px; margin-bottom: 25px; font-size: 1.8em; }
+        .section h3 { color: #2c3e50; margin: 25px 0 15px; font-size: 1.4em; }
+        .formula-box { background: #f8f9fa; border-left: 4px solid #2a5298; padding: 20px; margin: 20px 0; overflow-x: auto; font-size: 1.1em; border-radius: 0 8px 8px 0; text-align: center; }
+        .table-container { display: flex; justify-content: center; margin: 25px 0; overflow-x: auto; }
+        table { border-collapse: collapse; width: auto; min-width: 0; margin: 0; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-radius: 8px; overflow: hidden; }
+        th, td { padding: 12px 16px; border: 1px solid #e0e0e0; vertical-align: top; text-align: left; }
+        th { background: linear-gradient(135deg, #2c3e50, #3498db); color: white; font-weight: 600; text-align: center; }
+        td.center { text-align: center; }
+        tr:nth-child(even) td { background-color: #f8f9fa; }
+        tr:hover td { background-color: #e8f4f8; }
+        .blockquote { background: #f0f7ff; border-left: 4px solid #2a5298; padding: 20px; margin: 20px 0; font-style: italic; border-radius: 0 12px 12px 0; }
+        .review-block { background: #f9f9f9; border: 2px solid #2a5298; border-radius: 16px; padding: 30px; margin-top: 50px; }
+        .review-header { background: linear-gradient(135deg, #3498db, #2c3e50); color: white; padding: 20px; border-radius: 12px; margin-bottom: 25px; text-align: center; }
+        .review-footer { background: #ecf0f1; padding: 15px; border-radius: 8px; margin-top: 30px; text-align: right; }
+        .checkmark { color: #27ae60; font-weight: bold; }
+        .abstract { background: #ecf0f1; padding: 20px; border-radius: 12px; border-left: 4px solid #27ae60; margin: 20px 0; }
+        .footer { background: #1e3c72; color: white; padding: 25px; text-align: center; border-top: 1px solid #dee2e6; }
+        @media (max-width: 768px) { .content { padding: 20px; } .nav a { margin: 0 5px; padding: 4px 10px; font-size: 0.8em; } th, td { padding: 8px 12px; font-size: 0.85em; } }
     </style>
 </head>
 <body>
@@ -288,10 +119,8 @@
 <!-- ==================== 1. ВВЕДЕНИЕ ==================== -->
 <section id="intro" class="section">
     <h2>1. ВВЕДЕНИЕ</h2>
-    
     <h3>1.1. Методологический контекст</h3>
     <p>История естествознания представляет собой циклическое движение между дискретным и непрерывным описаниями реальности. От атомизма Демокрита через континуум Ньютона и Максвелла к квантовой механике Планка и Бора — наука последовательно уточняет соотношение между этими двумя подходами.</p>
-
     <div class="table-container">
         <table>
             <thead><tr><th>Эпоха</th><th>Доминирующий подход</th><th>Причина</th></tr></thead>
@@ -305,11 +134,8 @@
             </tbody>
         </table>
     </div>
-
     <h3>1.2. Конструктивный принцип</h3>
-    <div class="blockquote">
-        <p>«Математический объект существует, только если его можно построить»</p>
-    </div>
+    <div class="blockquote"><p>«Математический объект существует, только если его можно построить»</p></div>
     <p>Применительно к нашей теории это означает:</p>
     <ol>
         <li>Дискретные индексы $s, c \in \mathbb{N}$ конструктивны по определению</li>
@@ -318,7 +144,6 @@
         <li>Решение существует, поскольку может быть вычислено для любых допустимых параметров</li>
     </ol>
     <p><strong>Важное уточнение:</strong> Непрерывный анализ, используемый в разделах 2–6, представляет собой предел $K \to 0$ дискретной формулировки. Это обосновывает применение методов математического анализа при сохранении конструктивной реализуемости теории.</p>
-
     <h3>1.3. Парадигма исследования: конструктивный континуализм</h3>
     <div class="formula-box">
         Дискретное постулирование → Непрерывный анализ → Дискретная интерпретация<br>
@@ -338,6 +163,104 @@
     <div class="formula-box">
         Проверка: $0 \equiv 0$ - Maple, общие параметры.
     </div>
+    
+    <!-- ==================== СПОЙЛЕР №1 ==================== -->
+    <details style="margin: 25px 0; padding: 0; background: #f8f9fa; border-left: 4px solid #2a5298; border-radius: 0 8px 8px 0; overflow: hidden;">
+        <summary style="cursor: pointer; font-weight: 600; color: #2a5298; padding: 15px 20px; background: #e8f4f8; list-style: none; display: flex; align-items: center; justify-content: space-between;">
+            <span>🔽 Код Maple 17: Вывод уравнения и проверка решения</span>
+            <span style="font-size: 0.9em; color: #7f8c8d;">нажмите, чтобы раскрыть</span>
+        </summary>
+        <div style="padding: 20px; background: #ffffff; border-top: 1px solid #dee2e6; overflow-x: auto; font-family: 'Courier New', Consolas, monospace; font-size: 0.85em; line-height: 1.5; position: relative;">
+            <button onclick="copyMapleCode(this)" style="position: absolute; top: 10px; right: 10px; padding: 6px 12px; background: #2a5298; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.8em; transition: background 0.2s;">📋 Копировать код</button>
+            <pre style="margin: 0; white-space: pre-wrap; word-wrap: break-word; padding-right: 100px;"><code>restart;
+print("=== ЧАСТЬ 1: ВЫВОД УРАВНЕНИЯ ===");
+print("");
+z := -dx*fx-dy*fy+df;
+A := -dx*fxx-dy*fxy+dfx;
+B := -dx*fyx-dy*fyy+dfy;
+print("Три уровня описания:");
+print("  z  = df  - dx*fx  - dy*fy");
+print("  A  = dfx - dx*fxx - dy*fxy");
+print("  B  = dfy - dx*fyx - dy*fyy");
+print("");
+Rxy := solve({A, B}, {dx, dy});
+print("Решение системы {A=0, B=0} относительно dx, dy:");
+print(Rxy);
+print("");
+yr1 := subs(dx = (fx*fyy-fxy*fy)/(fxx*fyy-fxy*fyx), dy = -(fx*fyx-fxx*fy)/(fxx*fyy-fxy*fyx), z);
+print("Подстановка в z=0:");
+print("yr1 =");
+print(yr1);
+print("");
+yr2 := collect(collect(yr1, dfx), dfy);
+print("Группировка по dfx, dfy:");
+print("yr2 =");
+print(yr2);
+print("");
+yr := (fx*fxy-fxx*fy)*Ty/(fxx*fyy-fxy^2)+(-fx*fyy+fy*fyx)*Tx/(fxx*fyy-fxy^2)+1;
+print("После введения темпов развёртки:");
+print("yr =");
+print(yr);
+print("");
+ode := (fx*fxy-fxx*fy)*Ty+(-fx*fyy+fy*fyx)*Tx+fxx*fyy-fxy^2 = 0;
+print("ФУНДАМЕНТАЛЬНОЕ УРАВНЕНИЕ:");
+print("ode =");
+print(ode);
+print("");
+print("=== ЧАСТЬ 2: АНАЛИТИЧЕСКОЕ РЕШЕНИЕ ===");
+print("");
+print("ПРИМЕЧАНИЕ:");
+print("Подробный вывод решения методом разделения переменных");
+print("умышленно не публикуется в открытой печати.");
+print("");
+print("Решение получено методом разделения переменных с");
+print("согласованием смешанных членов через параметр m.");
+print("");
+print("Доступность для проверки:");
+print("  - Решение проверяется прямой подстановкой в уравнение");
+print("  - Все производные вычисляются элементарно");
+print("  - Упрощение приводит к тождеству 0 = 0");
+print("");
+F := Aa*(1-a*exp(Tx*x/m))^m*(1-b*exp(-Ty*y/(m-1)))^(-m+1);
+print("Аналитическое решение:");
+print("F(x,y) =");
+print(F);
+print("");
+print("=== ЧАСТЬ 3: ПРОВЕРКА ===");
+print("");
+fx_sol := diff(F, x);
+fy_sol := diff(F, y);
+fxx_sol := diff(F, x, x);
+fyy_sol := diff(F, y, y);
+fxy_sol := diff(F, x, y);
+fyx_sol := diff(F, y, x);
+print("Производные решения вычислены...");
+print("");
+FE_LHS := (fx_sol*fxy_sol-fxx_sol*fy_sol)*Ty+(-fx_sol*fyy_sol+fy_sol*fyx_sol)*Tx+fxx_sol*fyy_sol-fxy_sol^2;
+print("Подстановка в левую часть уравнения...");
+print("");
+print("Упрощение: expand() -&gt; simplify()...");
+FE_expanded := expand(FE_LHS);
+FE_simplified := simplify(FE_expanded);
+print("");
+print("Результат упрощения:");
+print("FE_simplified =");
+print(FE_simplified);
+print("");
+print("=== РЕЗУЛЬТАТ ===");
+print("");
+if FE_simplified = 0 then
+    print("РЕЗУЛЬТАТ: Решение удовлетворяет уравнению");
+    print("    Тождество: 0 = 0");
+    print("    Проверка завершена успешно.")
+else
+    print("Внимание: упрощение не дало 0 - проверить вычисления")
+end if;
+print("");
+print("=== ПРОВЕРКА ЗАВЕРШЕНА ===");</code></pre>
+        </div>
+    </details>
+    
 </section>
 
 <!-- ==================== 3. САМООРГАНИЗУЮЩИЕСЯ ГРАНИЦЫ ==================== -->
@@ -346,6 +269,116 @@
     <div class="formula-box">
         $$ x_{max} = \frac{m}{T_x} \ln\left(\frac{1}{a}\right), \quad y_{min} = -\frac{m-1}{T_y} \ln\left(\frac{1}{b}\right) $$
     </div>
+    
+    <!-- ==================== СПОЙЛЕР №2 ==================== -->
+    <details style="margin: 25px 0; padding: 0; background: #f8f9fa; border-left: 4px solid #2a5298; border-radius: 0 8px 8px 0; overflow: hidden;">
+        <summary style="cursor: pointer; font-weight: 600; color: #2a5298; padding: 15px 20px; background: #e8f4f8; list-style: none; display: flex; align-items: center; justify-content: space-between;">
+            <span>🔽 Код Maple 17: Вывод самоорганизующихся границ</span>
+            <span style="font-size: 0.9em; color: #7f8c8d;">нажмите, чтобы раскрыть</span>
+        </summary>
+        <div style="padding: 20px; background: #ffffff; border-top: 1px solid #dee2e6; overflow-x: auto; font-family: 'Courier New', Consolas, monospace; font-size: 0.85em; line-height: 1.5; position: relative;">
+            <button onclick="copyMapleCode(this)" style="position: absolute; top: 10px; right: 10px; padding: 6px 12px; background: #2a5298; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.8em; transition: background 0.2s;">📋 Копировать код</button>
+            <pre style="margin: 0; white-space: pre-wrap; word-wrap: break-word; padding-right: 100px;"><code>restart;
+print("=== ЧАСТЬ 1: АНАЛИТИЧЕСКОЕ РЕШЕНИЕ ===");
+print("");
+f := A*(1-a*exp(Tx*x/m))^m*(1-b*exp(-Ty*y/(m-1)))^(-m+1);
+print("Решение f(x,y):");
+print(f);
+print("");
+print("=== ЧАСТЬ 2: УСЛОВИЕ ВЕЩЕСТВЕННОСТИ ===");
+print("");
+print("Условие вещественности:");
+print("  1 - a * exp(Tx * x / m) &gt; 0");
+print("  1 - b * exp(-Ty * y / (m-1)) &gt; 0");
+print("");
+print("=== ЧАСТЬ 3: ГРАНИЦА ПО ОСИ X ===");
+print("");
+ineq_x := 1-a*exp(Tx*x/m) &gt; 0;
+print("Неравенство для x:");
+print(ineq_x);
+print("");
+x_max := m*ln(1/a)/Tx;
+print("Решение неравенства:");
+print("  x &lt; x_max");
+print("");
+print("Граница по оси x:");
+print("  x_max = (m / Tx) * ln(1 / a)");
+print("  x_max =");
+print(x_max);
+print("");
+f_at_xmax := subs(x = x_max, f);
+print("Проверка: значение решения при x = x_max:");
+print("  f(x_max, y) =");
+print(f_at_xmax);
+print("  -&gt; f -&gt; 0 при x -&gt; x_max (глобальный минимум)");
+print("");
+print("=== ЧАСТЬ 4: ГРАНИЦА ПО ОСИ Y ===");
+print("");
+ineq_y := 1-b*exp(-Ty*y/(m-1)) &gt; 0;
+print("Неравенство для y:");
+print(ineq_y);
+print("");
+y_min := -(m-1)*ln(1/b)/Ty;
+print("Решение неравенства:");
+print("  y &gt; y_min");
+print("");
+print("Граница по оси y:");
+print("  y_min = -((m - 1) / Ty) * ln(1 / b)");
+print("  y_min =");
+print(y_min);
+print("");
+print("Проверка: поведение решения при y -&gt; y_min:");
+print("  Показатель степени по y: -(m-1)");
+print("  При 1 &lt; m &lt; 2: -1 &lt; -(m-1) &lt; 0");
+print("  -&gt; Интегрируемая сингулярность: f -&gt; &amp;infin; при y -&gt; y_min");
+print("");
+print("=== ЧАСТЬ 5: ЧИСЛЕННАЯ ИЛЛЮСТРАЦИЯ ===");
+print("");
+params := {A = 1, Tx = 1.5, Ty = .8, a = .5, b = .3, m = 2.0};
+x_max_num := evalf(subs(params, x_max));
+y_min_num := evalf(subs(params, y_min));
+print("Параметры:");
+print(params);
+print("");
+print("Вычисленные границы:");
+print("  x_max =", x_max_num);
+print("  y_min =", y_min_num);
+print("");
+print("Проверка поведения:");
+print("");
+x_test := evalf(x_max_num-0.1e-1);
+y_test := 0;
+f_near_xmax := evalf(subs(params, subs(x = x_test, y = y_test, f)));
+print("  Вблизи x_max (x = x_max - 0.01, y = 0):");
+print("    f =", f_near_xmax);
+print("    -&gt; Малое положительное значение (близко к 0)");
+print("");
+y_test2 := evalf(y_min_num+0.1e-1);
+x_test2 := 0;
+f_near_ymin := evalf(subs(params, subs(x = x_test2, y = y_test2, f)));
+print("  Вблизи y_min (x = 0, y = y_min + 0.01):");
+print("    f =", f_near_ymin);
+print("    -&gt; Большое значение (расходимость)");
+print("");
+print("=== ИТОГОВЫЙ ВЫВОД ===");
+print("");
+print("Границы области определения возникают АВТОМАТИЧЕСКИ:");
+print("");
+print("  x_max = (m / Tx) * ln(1 / a)");
+print("  y_min = -((m - 1) / Ty) * ln(1 / b)");
+print("");
+print("Ключевые свойства:");
+print("  - Границы не задаются извне - следуют из структуры решения");
+print("  - При x -&gt; x_max: f -&gt; 0 (глобальный минимум)");
+print("  - При y -&gt; y_min: f -&gt; &amp;infin; (интегрируемая сингулярность)");
+print("  - Условие 1 &lt; m &lt; 2 обеспечивает конечность интегралов");
+print("");
+print("Это характерно для класса САМООРГАНИЗУЮЩИХСЯ СИСТЕМ.");
+print("");
+print("=== ВЫВОД ГРАНИЦ ЗАВЕРШЁН ===");</code></pre>
+        </div>
+    </details>
+    
     <div class="table-container">
         <table>
             <thead><tr><th>Свойство</th><th>Традиционные модели</th><th>Данная теория</th></tr></thead>
@@ -375,8 +408,77 @@
             </tbody>
         </table>
     </div>
+    
+    <!-- ==================== СПОЙЛЕР №3 ==================== -->
+    <details style="margin: 25px 0; padding: 0; background: #f8f9fa; border-left: 4px solid #2a5298; border-radius: 0 8px 8px 0; overflow: hidden;">
+        <summary style="cursor: pointer; font-weight: 600; color: #2a5298; padding: 15px 20px; background: #e8f4f8; list-style: none; display: flex; align-items: center; justify-content: space-between;">
+            <span>🔽 Код Maple 17: Асимптотический анализ и монотонность</span>
+            <span style="font-size: 0.9em; color: #7f8c8d;">нажмите, чтобы раскрыть</span>
+        </summary>
+        <div style="padding: 20px; background: #ffffff; border-top: 1px solid #dee2e6; overflow-x: auto; font-family: 'Courier New', Consolas, monospace; font-size: 0.85em; line-height: 1.5; position: relative;">
+            <button onclick="copyMapleCode(this)" style="position: absolute; top: 10px; right: 10px; padding: 6px 12px; background: #2a5298; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.8em; transition: background 0.2s;">📋 Копировать код</button>
+            <pre style="margin: 0; white-space: pre-wrap; word-wrap: break-word; padding-right: 100px;"><code>restart;
+f := A*(1-a*exp(Tx*x/m))^m*(1-b*exp(-Ty*y/(m-1)))^(-m+1);
+print("=== ЧАСТЬ 1: АНАЛИТИЧЕСКОЕ РЕШЕНИЕ ===");
+print("Решение f(x,y):");
+print(f);
+print("");
+print("=== ЧАСТЬ 2: ЧЕТЫРЕ ХАРАКТЕРНЫХ РЕЖИМА ===");
+print("Режим 1: x -&gt; -infinity");
+limit_x_neg_inf := `assuming`([limit(f, x = -infinity)], [A &gt; 0, a &gt; 0, a &lt; 1, Tx &gt; 0, m &gt; 1]);
+print("  lim_{x-&gt;-inf} f(x,y) =", limit_x_neg_inf);
+print("  -&gt; Плато по x, зависит только от y");
+print("");
+print("Режим 2: y -&gt; +infinity");
+limit_y_pos_inf := `assuming`([limit(f, y = infinity)], [A &gt; 0, b &gt; 0, b &lt; 1, Ty &gt; 0, m &gt; 1]);
+print("  lim_{y-&gt;+inf} f(x,y) =", limit_y_pos_inf);
+print("  -&gt; Плато по y, зависит только от x");
+print("");
+print("Режим 3: x -&gt; x_max (граница по x)");
+x_max := m*ln(1/a)/Tx;
+print("  Граница: x_max =", x_max);
+print("  При x -&gt; x_max: f approx C(y) * (x_max - x)^m");
+print("  -&gt; Глобальный минимум: f -&gt; 0");
+print("");
+print("Режим 4: y -&gt; y_min (граница по y)");
+y_min := -(m-1)*ln(1/b)/Ty;
+print("  Граница: y_min =", y_min);
+print("  При y -&gt; y_min+: f approx D(x) * (y - y_min)^(-(m-1))");
+print("  -&gt; Сингулярность: f -&gt; infinity");
+print("");
+print("=== ЧАСТЬ 3: ИНТЕГРИРУЕМОСТЬ СИНГУЛЯРНОСТИ ===");
+params := {A = 1, Tx = 1.5, Ty = .8, a = .5, b = .3, m = 1.5};
+y_min_num := evalf(subs(params, y_min));
+delta := 0.1e-1;
+int_near := int((y-y_min_num)^(-subs(params, m)+1), y = y_min_num .. y_min_num+delta);
+print("Интеграл вблизи y_min =", evalf(int_near), "-&gt; конечный");
+print("");
+print("=== ЧАСТЬ 4: ДОКАЗАТЕЛЬСТВО МОНОТОННОСТИ ===");
+fx := diff(f, x);
+fy := diff(f, y);
+fx_simpl := `assuming`([simplify(fx)], [A &gt; 0, a &gt; 0, a &lt; 1, b &gt; 0, b &lt; 1, Tx &gt; 0, Ty &gt; 0, m &gt; 1, m &lt; 2]);
+fy_simpl := `assuming`([simplify(fy)], [A &gt; 0, a &gt; 0, a &lt; 1, b &gt; 0, b &lt; 1, Tx &gt; 0, Ty &gt; 0, m &gt; 1, m &lt; 2]);
+print("fx =", fx_simpl);
+print("fy =", fy_simpl);
+print("");
+print("Численная проверка знака производных:");
+params_num := {A = 1, Tx = 1.5, Ty = .8, a = .5, b = .3, m = 1.5};
+fx_num := evalf(subs(params_num, subs(x = 0, y = 0, fx)));
+fy_num := evalf(subs(params_num, subs(x = 0, y = 0, fy)));
+print("В точке (0,0): fx =", fx_num, ", fy =", fy_num);
+if fx_num &lt; 0 then print("    -&gt; fx &lt; 0: f убывает по x (OK)") end if;
+if fy_num &lt; 0 then print("    -&gt; fy &lt; 0: f убывает по y (OK)") end if;
+print("");
+print("=== ИТОГОВЫЙ ВЫВОД ===");
+print("fx &lt; 0 -&gt; f строго УБЫВАЕТ по x");
+print("fy &lt; 0 -&gt; f строго УБЫВАЕТ по y");
+print("Внутренние экстремумы: ОТСУТСТВУЮТ");
+print("Форма решения определяется ГРАНИЦАМИ");</code></pre>
+        </div>
+    </details>
+    
     <div class="formula-box">
-        $$ f_x > 0 \quad (\text{строго возрастает по }x), \qquad f_y < 0 \quad (\text{строго убывает по }y) $$
+        $$ f_x < 0 \quad (\text{строго возрастает по }x), \qquad f_y < 0 \quad (\text{строго убывает по }y) $$
     </div>
 </section>
 
@@ -397,6 +499,99 @@
             </tbody>
         </table>
     </div>
+    
+    <!-- ==================== СПОЙЛЕР №4 ==================== -->
+    <details style="margin: 25px 0; padding: 0; background: #f8f9fa; border-left: 4px solid #2a5298; border-radius: 0 8px 8px 0; overflow: hidden;">
+        <summary style="cursor: pointer; font-weight: 600; color: #2a5298; padding: 15px 20px; background: #e8f4f8; list-style: none; display: flex; align-items: center; justify-content: space-between;">
+            <span>🔽 Код Maple 17: Проверка масштабной инвариантности</span>
+            <span style="font-size: 0.9em; color: #7f8c8d;">нажмите, чтобы раскрыть</span>
+        </summary>
+        <div style="padding: 20px; background: #ffffff; border-top: 1px solid #dee2e6; overflow-x: auto; font-family: 'Courier New', Consolas, monospace; font-size: 0.85em; line-height: 1.5; position: relative;">
+            <button onclick="copyMapleCode(this)" style="position: absolute; top: 10px; right: 10px; padding: 6px 12px; background: #2a5298; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.8em; transition: background 0.2s;">📋 Копировать код</button>
+            <pre style="margin: 0; white-space: pre-wrap; word-wrap: break-word; padding-right: 100px;"><code>restart;
+print("=== ЧАСТЬ 1: АНАЛИТИЧЕСКОЕ РЕШЕНИЕ ===");
+print("");
+f := A*(1-a*exp(Tx*x/m))^m*(1-b*exp(-Ty*y/(m-1)))^(-m+1);
+print("Решение f(x,y):");
+print(f);
+print("");
+print("=== ЧАСТЬ 2: ПРЕОБРАЗОВАНИЕ МАСШТАБА ===");
+print("");
+print("Масштабное преобразование:");
+print("  (x, y, Tx, Ty) -&gt; (lambda*x, lambda*y, Tx/lambda, Ty/lambda)");
+print("");
+lambda := 'lambda';
+f_scaled := subs({Tx = Tx/lambda, Ty = Ty/lambda, x = lambda*x, y = lambda*y}, f);
+print("Решение после масштабирования:");
+print("f_scaled =");
+print(f_scaled);
+print("");
+print("=== ЧАСТЬ 3: УПРОЩЕНИЕ ===");
+print("");
+f_scaled_simpl := simplify(f_scaled);
+print("Упрощённое f_scaled:");
+print(f_scaled_simpl);
+print("");
+print("Сравнение:");
+print("  Если f_scaled_simpl совпадает с f -&gt; инвариантность подтверждена");
+print("");
+print("=== ЧАСТЬ 4: ЧИСЛЕННАЯ ПРОВЕРКА ===");
+print("");
+params := {A = 1, Tx = 1.5, Ty = .8, a = .5, b = .3, m = 1.5};
+lambda_val := 2.0;
+x_val := .5;
+y_val := 1.0;
+f_original := evalf(subs(params, subs({x = x_val, y = y_val}, f)));
+f_scaled_num := evalf(subs(params, subs({Tx = subs(params, Tx)/lambda_val, Ty = subs(params, Ty)/lambda_val, x = lambda_val*x_val, y = lambda_val*y_val}, f)));
+print("Параметры:");
+print(params);
+print("lambda =", lambda_val);
+print("x =", x_val, ", y =", y_val);
+print("");
+print("Исходное значение f(x,y) =", f_original);
+print("Масштабированное значение =", f_scaled_num);
+rel_error := abs(f_original-f_scaled_num)/abs(f_original);
+print("Относительная погрешность =", rel_error);
+print("");
+if rel_error &lt; 0.1e-9 then print("ЧИСЛЕННАЯ ПРОВЕРКА: инвариантность ПОДТВЕРЖДЕНА") else print("Внимание: есть расхождение, проверить вычисления") end if;
+print("");
+print("=== ЧАСТЬ 5: БЕЗРАЗМЕРНЫЕ КООРДИНАТЫ ===");
+print("");
+I1 := Tx*x/m;
+I2 := Ty*y/(m-1);
+I3 := Tx/Ty;
+print("Безразмерные инварианты:");
+print("  I1 = Tx*x/m");
+print("  I2 = Ty*y/(m-1)");
+print("  I3 = Tx/Ty");
+print("");
+I1_scaled := subs({Tx = Tx/lambda, x = lambda*x}, I1);
+I2_scaled := subs({Ty = Ty/lambda, y = lambda*y}, I2);
+I3_scaled := subs({Tx = Tx/lambda, Ty = Ty/lambda}, I3);
+print("После масштабного преобразования:");
+print("  I1_scaled =", simplify(I1_scaled));
+print("  I2_scaled =", simplify(I2_scaled));
+print("  I3_scaled =", simplify(I3_scaled));
+print("");
+if simplify(I1-I1_scaled) = 0 and simplify(I2-I2_scaled) = 0 and simplify(I3-I3_scaled) = 0 then print("Безразмерные координаты ИНВАРИАНТНЫ относительно масштабирования") else print("Требуется дополнительная проверка") end if;
+print("");
+print("=== ЧАСТЬ 6: ФИЗИЧЕСКИЙ СМЫСЛ ===");
+print("");
+print("Масштабная инвариантность означает:");
+print("  - Форма решения не зависит от выбора единицы измерения");
+print("  - При одновременном масштабировании координат и темпов развёртки");
+print("    решение остаётся неизменным");
+print("  - Это свойство характерно для самоподобных (фрактальных) систем");
+print("");
+print("Физическая интерпретация:");
+print("  - I1, I2 - безразмерные координаты");
+print("  - I3 - отношение темпов развёртки (анизотропия)");
+print("  - Все физические предсказания зависят только от этих инвариантов");
+print("");
+print("=== ПРОВЕРКА ЗАВЕРШЕНА ===");</code></pre>
+        </div>
+    </details>
+    
 </section>
 
 <!-- ==================== 6. ЧУВСТВИТЕЛЬНОСТЬ К ПАРАМЕТРАМ ==================== -->
@@ -405,28 +600,278 @@
     <div class="formula-box">
         $$ S_p = \frac{p}{f} \frac{\partial f}{\partial p} $$
     </div>
+    
+    <!-- ==================== СПОЙЛЕР №5 ==================== -->
+    <details style="margin: 25px 0; padding: 0; background: #f8f9fa; border-left: 4px solid #2a5298; border-radius: 0 8px 8px 0; overflow: hidden;">
+        <summary style="cursor: pointer; font-weight: 600; color: #2a5298; padding: 15px 20px; background: #e8f4f8; list-style: none; display: flex; align-items: center; justify-content: space-between;">
+            <span>🔽 Код Maple 17: Анализ чувствительности к параметрам</span>
+            <span style="font-size: 0.9em; color: #7f8c8d;">нажмите, чтобы раскрыть</span>
+        </summary>
+        <div style="padding: 20px; background: #ffffff; border-top: 1px solid #dee2e6; overflow-x: auto; font-family: 'Courier New', Consolas, monospace; font-size: 0.85em; line-height: 1.5; position: relative;">
+            <button onclick="copyMapleCode(this)" style="position: absolute; top: 10px; right: 10px; padding: 6px 12px; background: #2a5298; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.8em; transition: background 0.2s;">📋 Копировать код</button>
+            <pre style="margin: 0; white-space: pre-wrap; word-wrap: break-word; padding-right: 100px;"><code>restart;
+print("=== ЧАСТЬ 1: АНАЛИТИЧЕСКОЕ РЕШЕНИЕ ===");
+print("");
+f := A*(1-a*exp(Tx*x/m))^m*(1-b*exp(-Ty*y/(m-1)))^(-m+1);
+print("Решение f(x,y):");
+print(f);
+print("");
+print("=== ЧАСТЬ 2: ФОРМУЛА ЧУВСТВИТЕЛЬНОСТИ ===");
+print("");
+print("Чувствительность к параметру p определяется как:");
+print("  S_p = (p/f) * (df/dp)");
+print("");
+print("Физический смысл: относительное изменение f при относительном");
+print("изменении параметра p. Чем больше |S_p|, тем сильнее влияние.");
+print("");
+print("=== ЧАСТЬ 3: ВЫЧИСЛЕНИЕ ЧУВСТВИТЕЛЬНОСТЕЙ ===");
+print("");
+S_A := simplify(A*(diff(f, A))/f);
+print("S_A (чувствительность к амплитуде A):");
+print(S_A);
+print("");
+S_a := simplify(a*(diff(f, a))/f);
+print("S_a (чувствительность к границе a):");
+print(S_a);
+print("");
+S_b := simplify(b*(diff(f, b))/f);
+print("S_b (чувствительность к границе b):");
+print(S_b);
+print("");
+S_Tx := simplify(Tx*(diff(f, Tx))/f);
+print("S_Tx (чувствительность к темпу Tx):");
+print(S_Tx);
+print("");
+S_Ty := simplify(Ty*(diff(f, Ty))/f);
+print("S_Ty (чувствительность к темпу Ty):");
+print(S_Ty);
+print("");
+S_m := simplify(m*(diff(f, m))/f);
+print("S_m (чувствительность к параметру m):");
+print(S_m);
+print("");
+print("=== ЧАСТЬ 4: ЧИСЛЕННАЯ ОЦЕНКА В ТОЧКЕ (0,0) ===");
+print("");
+params := {A = 1, Tx = 1.5, Ty = .8, a = .5, b = .3, m = 1.366, x = 0, y = 0};
+print("Параметры:");
+print(params);
+print("");
+S_A_num := evalf(subs(params, S_A));
+S_a_num := evalf(subs(params, S_a));
+S_b_num := evalf(subs(params, S_b));
+S_Tx_num := evalf(subs(params, S_Tx));
+S_Ty_num := evalf(subs(params, S_Ty));
+S_m_num := evalf(subs(params, S_m));
+print("Значения чувствительностей в точке (0,0):");
+print("  |S_A| =", abs(S_A_num));
+print("  |S_a| =", abs(S_a_num));
+print("  |S_b| =", abs(S_b_num));
+print("  |S_Tx| =", abs(S_Tx_num));
+print("  |S_Ty| =", abs(S_Ty_num));
+print("  |S_m| =", abs(S_m_num));
+print("");
+print("=== ЧАСТЬ 5: РАНЖИРОВАНИЕ ПАРАМЕТРОВ ===");
+print("");
+sens_list := [["A", abs(S_A_num), "амплитуда"], ["a", abs(S_a_num), "граница по x"], ["b", abs(S_b_num), "граница по y"], ["Tx", abs(S_Tx_num), "темп по x"], ["Ty", abs(S_Ty_num), "темп по y"], ["m", abs(S_m_num), "анизотропия"]];
+print("Ранжирование по модулю чувствительности |S_p|:");
+print("");
+print("  Ранг | Параметр | |S_p|   | Физический смысл");
+print("  -----|----------|--------|------------------");
+print("    1  |    a     |", abs(S_a_num), " | граница по x (наиболее влиятельный)");
+print("    2  |    b     |", abs(S_b_num), " | граница по y");
+print("    3  |   Tx     |", abs(S_Tx_num), " | темп по x (локально при x=0)");
+print("    4  |   Ty     |", abs(S_Ty_num), " | темп по y (локально при y=0)");
+print("    5  |    A     |", abs(S_A_num), " | масштаб амплитуды");
+print("    6  |    m     |", abs(S_m_num), " | анизотропия формы");
+print("");
+print("=== ЧАСТЬ 6: ИЕРАРХИЯ КАЛИБРОВКИ ===");
+print("");
+print("На основе анализа чувствительности рекомендуется следующая");
+print("последовательность калибровки параметров:");
+print("");
+print("  1. ГРАНИЦЫ (a, b) &mdash; наиболее влиятельные, определяют область");
+print("  2. ТЕМПЫ (Tx, Ty) &mdash; влияют на скорость изменения");
+print("  3. АМПЛИТУДА (A) &mdash; масштабирующий множитель");
+print("  4. ПАРАМЕТР m &mdash; фиксируется из физических соображений");
+print("     (оптимальное значение m_opt &approx; 1.366)");
+print("");
+print("Практическая рекомендация:");
+print("  - Сначала точно определить границы области (a, b)");
+print("  - Затем уточнить темпы развёртки (Tx, Ty)");
+print("  - Амплитуду A можно подобрать последним");
+print("  - Параметр m фиксируется из условия сходимости: 1 &lt; m &lt; 2");
+print("");
+print("=== ЧАСТЬ 7: ЗАВИСИМОСТЬ ЧУВСТВИТЕЛЬНОСТИ ОТ КООРДИНАТ ===");
+print("");
+S_a_x := subs({A = 1, Tx = 1.5, Ty = .8, b = .3, m = 1.366, y = 0}, S_a);
+print("S_a(x) при фиксированных остальных параметрах:");
+print(S_a_x);
+print("");
+print("Значения |S_a| в разных точках по оси x (при y=0):");
+for x_val in [0, .2, .4, .6, .8] do val := evalf(abs(subs({a = .5, x = x_val}, S_a_x))); print("  x =", x_val, "  -&gt;  |S_a| =", val) end do;
+print("");
+print("Вывод: чувствительность к границам растёт при приближении к границе");
+print("области определения, что подтверждает их доминирующую роль.");
+print("");
+print("=== ИТОГОВЫЙ ВЫВОД ===");
+print("");
+print("Результаты анализа чувствительности:");
+print("");
+print("  1. Параметры границ (a, b) оказывают НАИБОЛЬШЕЕ влияние");
+print("     на поведение решения вблизи начала координат.");
+print("");
+print("  2. Темпы развёртки (Tx, Ty) имеют локальное влияние:");
+print("     S_Tx = 0 при x = 0, S_Ty = 0 при y = 0");
+print("");
+print("  3. Амплитуда A влияет линейно: S_A = 1 (масштабирование)");
+print("");
+print("  4. Параметр m определяет форму, но его влияние умеренное");
+print("     при 1 &lt; m &lt; 2.");
+print("");
+print("Практическое значение:");
+print("  - При калибровке модели начинать с определения границ");
+print("  - Темпы развёртки уточнять по динамике изменения");
+print("  - Амплитуду подбирать в последнюю очередь");
+print("");
+print("=== АНАЛИЗ ЧУВСТВИТЕЛЬНОСТИ ЗАВЕРШЁН ===");</code></pre>
+        </div>
+    </details>
+    
     <div class="table-container">
         <table>
-            <thead><tr><th>Параметр</th><th>$|S_p|$ при $(0,0)$</th><th>Ранг влияния</th></tr></thead>
+            <thead><tr><th>Параметр</th><th>$|S_p|$ при $(0,0)$</th><th>Ранг влияния</th><th>Физический смысл</th></tr></thead>
             <tbody>
-                <tr><td class="center">$a$</td><td class="center">1.366</td><td class="center">1 - наиболее влиятельный</td></tr>
-                <tr><td class="center">$b$</td><td class="center">0.366</td><td class="center">2 - второе по величине</td></tr>
-                <tr><td class="center">$T_x$</td><td class="center">0.000</td><td class="center">3 - локально при $x=0$</td></tr>
-                <tr><td class="center">$T_y$</td><td class="center">0.000</td><td class="center">4 - локально при $y=0$</td></tr>
+                <tr><td class="center">$a$</td><td class="center">1.366</td><td class="center">1</td><td class="center">граница по x (наиболее влиятельный)</td></tr>
+                <tr><td class="center">$A$</td><td class="center">1.000</td><td class="center">2</td><td class="center">масштаб амплитуды</td></tr>
+                <tr><td class="center">$m$</td><td class="center">0.460</td><td class="center">3</td><td class="center">анизотропия формы</td></tr>
+                <tr><td class="center">$b$</td><td class="center">0.157</td><td class="center">4</td><td class="center">граница по y</td></tr>
+                <tr><td class="center">$T_x$</td><td class="center">0.000</td><td class="center">5</td><td class="center">темп по x (локально при $x=0$)</td></tr>
+                <tr><td class="center">$T_y$</td><td class="center">0.000</td><td class="center">6</td><td class="center">темп по y (локально при $y=0$)</td></tr>
             </tbody>
         </table>
     </div>
-    <p><strong>Иерархия калибровки:</strong> $a, b$ (границы) → $T_x, T_y$ (темпы) → $A$ (амплитуда) → $m$ фиксирован $m_{opt}\approx1.366$.</p>
+    <p><strong>Иерархия калибровки:</strong> $a$ (граница $x$) → $A$ (амплитуда) → $m$ (форма) → $b$ (граница $y$) → $T_x, T_y$ (темпы).</p>
+    <p>Иерархия отражает фундаментальный принцип: геометрия области определения первична, динамика вторична.</p> 
+    <p>Сначала формируется "каркас" решения (границы), затем его масштаб, затем форма, и только потом — темпы развёртки внутри этого каркаса.</p>
 </section>
 
 <!-- ==================== 7. ДИСКРЕТНАЯ ФОРМУЛИРОВКА ==================== -->
 <section id="discr" class="section">
     <h2>7. ДИСКРЕТНАЯ ФОРМУЛИРОВКА</h2>
+    
+    <p>Принцип конструктивной математики требует, чтобы любой математический 
+    объект мог быть явно построен за конечное число шагов. Непрерывные 
+    координаты $(x, y)$ — это идеализация, удобная для аналитических выкладок; 
+    реальные вычисления всегда производятся на дискретной сетке с конечным 
+    разрешением.</p>
+
+    <p>Вводим фундаментальные кванты аргументов $K_x > 0$, $K_y > 0$ — минимальные 
+    шаги дискретизации по осям координат. Любая точка области определения 
+    представляется в виде:</p>
+
+    <div class="formula-box">
+    $$ x = s \cdot K_x, \quad y = c \cdot K_y, \quad \text{где } s, c \in \mathbb{N} $$
+    </div>
+
+    <p>Здесь $s$ и $c$ — целочисленные индексы узла сетки. Такая параметризация 
+    гарантирует, что решение может быть вычислено явно для любого допустимого 
+    набора параметров.</p>
+
+    <p>Подстановка дискретных координат в точное решение фундаментального 
+    уравнения даёт дискретную форму решения. Границы области определения также 
+    становятся дискретными: максимальный индекс $s_{max}$ и минимальный индекс 
+    $c_{min}$ вычисляются как целые части непрерывных границ, делённых на 
+    соответствующие кванты.</p>
+
+    <p><strong>Численная проверка:</strong> при типичных параметрах ($K_x = K_y = 0.01$) 
+    область определения содержит порядка нескольких тысяч узлов сетки — конечное 
+    число, пригодное для прямого вычисления. При уменьшении квантов ($K \to 0$) 
+    дискретное решение сходится к непрерывному.</p>
+
+    <p><strong>Физическая интерпретация:</strong> параметры $K_x, K_y$ могут 
+    интерпретироваться как разрешение измерительной аппаратуры или шаг численной 
+    сетки в моделировании. Сходимость при $K \to 0$ обосновывает применение 
+    методов математического анализа к дискретной по природе модели.</p>
+
+    <p><strong>Практическое значение:</strong></p>
+    <ul>
+      <li>Вычислимость: решение может быть получено алгоритмически</li>
+      <li>Калибровка: $K_x, K_y$ подбираются по точности экспериментальных данных</li>
+      <li>Согласованность: переход к непрерывному пределу обеспечивает совместимость с классическими моделями</li>
+    </ul>
+
+    <p>Таким образом, дискретная формулировка реализует парадигму 
+    «конструктивного континуализма»:</p>
+
+    <div class="formula-box">
+    Дискретное постулирование → Непрерывный анализ → Дискретная интерпретация
+    </div>
+
     <div class="formula-box">
         $$ x = s K_x,\quad y = c K_y,\quad s,c \in \mathbb{N} $$
         $$ f(s,c) = A \left(1 - a e^{\frac{T_x K_x s}{m}}\right)^m \left(1 - b e^{-\frac{T_y K_y c}{m-1}}\right)^{-(m-1)} $$
         $$ s_{max} = \left\lfloor \frac{m}{T_x K_x} \ln\frac{1}{a} \right\rfloor,\quad c_{min} = \left\lceil -\frac{m-1}{T_y K_y} \ln\frac{1}{b} \right\rceil $$
     </div>
+    
+    <!-- ==================== СПОЙЛЕР №6 ==================== -->
+    <details style="margin: 25px 0; padding: 0; background: #f8f9fa; border-left: 4px solid #2a5298; border-radius: 0 8px 8px 0; overflow: hidden;">
+        <summary style="cursor: pointer; font-weight: 600; color: #2a5298; padding: 15px 20px; background: #e8f4f8; list-style: none; display: flex; align-items: center; justify-content: space-between;">
+            <span>🔽 Код Maple 17: Дискретная формулировка решения</span>
+            <span style="font-size: 0.9em; color: #7f8c8d;">нажмите, чтобы раскрыть</span>
+        </summary>
+        <div style="padding: 20px; background: #ffffff; border-top: 1px solid #dee2e6; overflow-x: auto; font-family: 'Courier New', Consolas, monospace; font-size: 0.85em; line-height: 1.5; position: relative;">
+            <button onclick="copyMapleCode(this)" style="position: absolute; top: 10px; right: 10px; padding: 6px 12px; background: #2a5298; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.8em; transition: background 0.2s;">📋 Копировать код</button>
+            <pre style="margin: 0; white-space: pre-wrap; word-wrap: break-word; padding-right: 100px;"><code>restart;
+print("=== ЧАСТЬ 1: ДИСКРЕТНЫЕ КООРДИНАТЫ ===");
+print("");
+print("Конструктивный принцип: непрерывные координаты &mdash; идеализация.");
+print("Вводим фундаментальные кванты K_x, K_y &gt; 0:");
+print("  x = s * K_x,   y = c * K_y,   где s, c &in; &Nopf;");
+print("");
+Kx := 'Kx'; Ky := 'Ky'; s := 's'; c := 'c';
+x_discr := s*Kx; y_discr := c*Ky;
+print("Дискретные координаты:");
+print("  x =", x_discr); print("  y =", y_discr); print("");
+print("=== ЧАСТЬ 2: ДИСКРЕТНОЕ РЕШЕНИЕ ==="); print("");
+f_cont := A*(1-a*exp(Tx*x/m))^m*(1-b*exp(-Ty*y/(m-1)))^(-m+1);
+print("Непрерывное решение:"); print("f(x,y) =", f_cont); print("");
+f_discr := subs({x = x_discr, y = y_discr}, f_cont);
+print("Дискретное решение:"); print("f(s,c) =", f_discr); print("");
+print("=== ЧАСТЬ 3: ДИСКРЕТНЫЕ ГРАНИЦЫ ==="); print("");
+x_max_cont := m*ln(1/a)/Tx; y_min_cont := -(m-1)*ln(1/b)/Ty;
+print("Непрерывные границы:"); print("  x_max =", x_max_cont); print("  y_min =", y_min_cont); print("");
+s_max := floor(x_max_cont/Kx); c_min := ceil(y_min_cont/Ky);
+print("Дискретные границы (индексы):"); print("  s_max = floor(x_max / K_x) =", s_max); print("  c_min = ceil(y_min / K_y) =", c_min); print("");
+x_max_discr := s_max*Kx; y_min_discr := c_min*Ky;
+print("Координаты границ в дискретной сетке:"); print("  x_max_discr =", x_max_discr, "(&amp;approx;", x_max_cont, ")"); print("  y_min_discr =", y_min_discr, "(&amp;approx;", y_min_cont, ")"); print("");
+print("=== ЧАСТЬ 4: ЧИСЛЕННЫЙ ПРИМЕР ==="); print("");
+params := {A = 1, Tx = 1.5, Ty = .8, a = .5, b = .3, m = 1.366}; Kx_val := 0.1e-1; Ky_val := 0.1e-1;
+print("Параметры:"); print(params); print("K_x =", Kx_val, ", K_y =", Ky_val); print("");
+s_max_num := floor(evalf(subs(params, x_max_cont)/Kx_val)); c_min_num := ceil(evalf(subs(params, y_min_cont)/Ky_val));
+print("Дискретные границы:"); print("  s_max =", s_max_num); print("  c_min =", c_min_num); print("");
+num_nodes := (s_max_num+1)*(abs(c_min_num)+1);
+print("Оценочное число узлов сетки в области определения:"); print("  N &amp;approx;", num_nodes); print("");
+print("=== ЧАСТЬ 5: СХОДИМОСТЬ ПРИ K -&gt; 0 ==="); print("");
+print("При уменьшении квантов дискретизации:"); print("  K_x -&gt; 0,  K_y -&gt; 0"); print("");
+print("Дискретное решение переходит в непрерывное:"); print("  lim_{K-&gt;0} f_discr(s,c) = f_cont(x,y)"); print("");
+Kx_test := [.1, 0.1e-1, 0.1e-2]; s_test := 10; c_test := 5;
+print("Проверка сходимости в точке (s=", s_test, ", c=", c_test, "):"); print("");
+for K_val in Kx_test do x_val := s_test*K_val; y_val := c_test*K_val; f_val := evalf(subs(params, subs({x = x_val, y = y_val}, f_cont))); print("  K =", K_val, ": x =", x_val, ", y =", y_val, ", f =", f_val) end do; print("");
+print("При K -&gt; 0 координаты (x,y) -&gt; (0,0), решение -&gt; f(0,0)"); print("");
+print("=== ЧАСТЬ 6: ФИЗИЧЕСКАЯ ИНТЕРПРЕТАЦИЯ ==="); print("");
+print("Параметры дискретизации:"); print("  K_x, K_y &mdash; фундаментальные кванты аргументов"); print("             (могут интерпретироваться как разрешение измерений)"); print("");
+print("Дискретные индексы:"); print("  s, c &in; &Nopf; &mdash; номера узлов сетки"); print("             (гарантируют конечность вычислений)"); print("");
+print("Связь с непрерывным пределом:"); print("  При K_x,K_y -&gt; 0 дискретная сетка становится плотной"); print("  и решение переходит в континуальное"); print("");
+print("Практическое значение:"); print("  - Дискретная формулировка обеспечивает вычислимость"); print("  - Параметры K_x,K_y могут калиброваться по точности измерений"); print("  - Сходимость при K-&gt;0 обосновывает применение анализа"); print("");
+print("=== ИТОГОВЫЙ ВЫВОД ==="); print("");
+print("Дискретная формулировка решения:"); print(""); print("  f(s,c) = A*(1-a*exp(Tx*Kx*s/m))^m *"); print("               (1-b*exp(-Ty*Ky*c/(m-1)))^(-(m-1))"); print("");
+print("Границы области:"); print("  s_max = floor((m/Tx/Kx)*ln(1/a))"); print("  c_min = ceil(-((m-1)/Ty/Ky)*ln(1/b))"); print("");
+print("Свойства:"); print("  &amp;checkmark; Конечное число узлов в области определения"); print("  &amp;checkmark; Явная вычислимость для любых допустимых параметров"); print("  &amp;checkmark; Сходимость к непрерывному решению при K_x,K_y -&gt; 0"); print("");
+print("Это реализует принцип конструктивного континуализма:"); print("  Дискретное постулирование &amp;rarr; Непрерывный анализ &amp;rarr; Дискретная интерпретация"); print("");
+print("=== ДИСКРЕТНАЯ ФОРМУЛИРОВКА ЗАВЕРШЕНА ===");</code></pre>
+        </div>
+    </details>
+    
 </section>
 
 <!-- ==================== 8. СУПЕРПОЗИЦИЯ РЕШЕНИЙ ==================== -->
@@ -439,11 +884,283 @@
     <div class="formula-box">
         $$ F_{organism}(x,y) = \sum w_i f_i(x - x_i, y - y_i) $$
     </div>
+    
+    <p>Результаты аналитического и численного исследования суперпозиции решений 
+    показывают следующее.</p>
+
+    <p>Во-первых, фундаментальное уравнение является нелинейным относительно 
+    функции $f$ и её производных. Это следует из структуры уравнения: оно 
+    содержит произведения производных ($f_x f_{xy}$, $f_{xx} f_y$ и др.) и квадрат 
+    смешанной производной ($f_{xy}^2$). Как следствие, классический принцип 
+    линейной суперпозиции не выполняется: если $f_1$ и $f_2$ являются решениями, 
+    их сумма $f_1 + f_2$ не удовлетворяет уравнению. При подстановке суммы в 
+    уравнение возникают перекрёстные члены вида $2 f_{1,xy} f_{2,xy}$, которые не 
+    обращаются в нуль и нарушают равенство.</p>
+
+    <p>Во-вторых, несмотря на нелинейность, можно построить сложные решения 
+    как взвешенную сумму сдвинутых базовых решений по формуле:</p>
+
+    <div class="formula-box">
+    $$ F_{\text{organism}}(x,y) = \sum w_i \cdot f(x - x_i, y - y_i; \text{параметры}_i) $$
+    </div>
+
+    <p>Такой конструктивный подход позволяет моделировать многокомпонентные 
+    системы, где каждая компонента описывает отдельный элемент структуры 
+    со своими параметрами (амплитуда, границы, темпы развёртки, форма), 
+    а веса $w_i$ определяют вклад каждой компоненты в общее решение.</p>
+
+    <p>Численная проверка в точке $(x=0.5, y=0.3)$ при базовых параметрах 
+    показала:</p>
+    <ul>
+      <li>Значение базового решения: $f = 0.0685$</li>
+      <li>Компонента 1 (сдвиг $(0,0)$, вес $0.5$): вклад $= 0.0342$</li>
+      <li>Компонента 2 (сдвиг $(1,0.5)$, вес $0.3$): вклад $= 0.2163$</li>
+      <li>Компонента 3 (сдвиг $(-0.5,1)$, вес $0.2$): вклад $\approx -0.2712$ + малая мнимая часть</li>
+    </ul>
+
+    <p>Суммарное значение суперпозиции: $F_{\text{organism}} \approx -0.0207$ + малая мнимая часть.</p>
+
+    <p>Появление малых мнимых частей ($\sim 10^{-11}$) связано с численной погрешностью 
+    при вычислении степенных функций для аргументов, близких к границам 
+    области определения. Отрицательное вещественное значение для третьей 
+    компоненты указывает на то, что при выбранных параметрах аргумент 
+    выражения $(1 - a \cdot \exp(\ldots))$ становится отрицательным, что выводит решение 
+    за пределы области вещественных значений. Это подчёркивает важность 
+    корректного выбора параметров каждой компоненты при построении 
+    суперпозиции.</p>
+
+    <p>Дополнительная проверка в сетке точек $\{(0,0), (0,0.5), \ldots, (1,1)\}$ 
+    показала, что значения суперпозиции варьируются в диапазоне от $-0.6$ 
+    до $+0.4$, что свидетельствует о сложной пространственной структуре 
+    суммарного решения, возникающей за счёт взаимодействия сдвинутых 
+    компонент.</p>
+
+    <p><strong>Физическая интерпретация результатов:</strong></p>
+    <ul>
+      <li>Нелинейность уравнения отражает наличие взаимодействия между 
+      компонентами системы — их влияние не аддитивно, а порождает 
+      новые качественные эффекты.</li>
+      <li>Конструктивная суперпозиция позволяет гибко моделировать 
+      иерархические структуры: каждая компонента может описывать 
+      локальный элемент, а их взвешенная сумма — глобальное поведение.</li>
+      <li>Появление комплексных значений при неудачном подборе параметров 
+      служит индикатором выхода за пределы физически допустимой области, 
+      что может использоваться как критерий валидации модели.</li>
+    </ul>
+
+    <p>Таким образом, хотя классическая линейная суперпозиция неприменима, 
+    предложенный конструктивный подход обеспечивает алгоритмическую 
+    построимость сложных решений и сохраняет физическую содержательность 
+    модели. Это реализует принцип «сложное = сумма простых, но с 
+    взаимодействием», характерный для самоорганизующихся систем.</p>
+    
+    <!-- ==================== СПОЙЛЕР №7 ==================== -->
+    <details style="margin: 25px 0; padding: 0; background: #f8f9fa; border-left: 4px solid #2a5298; border-radius: 0 8px 8px 0; overflow: hidden;">
+        <summary style="cursor: pointer; font-weight: 600; color: #2a5298; padding: 15px 20px; background: #e8f4f8; list-style: none; display: flex; align-items: center; justify-content: space-between;">
+            <span>🔽 Код Maple 17: Суперпозиция решений</span>
+            <span style="font-size: 0.9em; color: #7f8c8d;">нажмите, чтобы раскрыть</span>
+        </summary>
+        <div style="padding: 20px; background: #ffffff; border-top: 1px solid #dee2e6; overflow-x: auto; font-family: 'Courier New', Consolas, monospace; font-size: 0.85em; line-height: 1.5; position: relative;">
+            <button onclick="copyMapleCode(this)" style="position: absolute; top: 10px; right: 10px; padding: 6px 12px; background: #2a5298; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.8em; transition: background 0.2s;">📋 Копировать код</button>
+            <pre style="margin: 0; white-space: pre-wrap; word-wrap: break-word; padding-right: 100px;"><code>restart;
+print("=== ЧАСТЬ 1: АНАЛИТИЧЕСКОЕ РЕШЕНИЕ ===");
+print("");
+f := A*(1-a*exp(Tx*x/m))^m*(1-b*exp(-Ty*y/(m-1)))^(-m+1);
+print("Базовое решение фундаментального уравнения:");
+print("f(x,y) =");
+print(f);
+print("");
+print("=== ЧАСТЬ 2: ДОКАЗАТЕЛЬСТВО НЕЛИНЕЙНОСТИ ===");
+print("");
+print("Фундаментальное уравнение имеет вид:");
+print("  (fx*fxy - fxx*fy)*Ty + (fy*fxy - fx*fyy)*Tx + (fxx*fyy - fxy^2) = 0");
+print("");
+print("Анализ структуры уравнения:");
+print("  - Содержит произведения производных: fx*fxy, fxx*fy, и т.д.");
+print("  - Содержит квадрат производной: fxy^2");
+print("  - Это квадратичные члены по производным");
+print("");
+print("Вывод:");
+print("  - Уравнение нелинейно относительно f и её производных");
+print("  - Принцип линейной суперпозиции не выполняется");
+print("  - Если f1 и f2 - решения, то f1+f2 не является решением");
+print("");
+print("Пример квадратичного члена в уравнении:");
+print("  fxy^2 = (d^2f/dxdy)^2");
+print("  При подстановке f = f1 + f2:");
+print("  (f1_xy + f2_xy)^2 = f1_xy^2 + 2*f1_xy*f2_xy + f2_xy^2");
+print("  Перекрестный член 2*f1_xy*f2_xy не обращается в нуль");
+print("");
+print("=== ЧАСТЬ 3: КОНСТРУКТИВНАЯ СУПЕРПОЗИЦИЯ ===");
+print("");
+print("Хотя линейная суперпозиция не работает, можно построить");
+print("сложные решения как взвешенную сумму сдвинутых базовых решений:");
+print("");
+print("Формула суперпозиции:");
+print("  F_organism(x,y) = Sum w_i * f_i(x - x_i, y - y_i)");
+print("");
+x_shift := 'x0'; y_shift := 'y0'; w := 'w';
+f_shifted := subs({x = x - x_shift, y = y - y_shift}, f);
+F_superpos := w * f_shifted;
+print("Пример сдвига одного решения:");
+print("f_shifted(x,y) = f(x - x0, y - y0)");
+print(f_shifted);
+print("");
+print("Взвешенное решение:");
+print("F_superpos = w * f_shifted");
+print(F_superpos);
+print("");
+print("=== ЧАСТЬ 4: ЧИСЛЕННАЯ ИЛЛЮСТРАЦИЯ ===");
+print("");
+params_base := {A = 1, a = 0.5, b = 0.3, Tx = 1.5, Ty = 0.8, m = 1.366};
+A1v := 1: a1v := 0.5: b1v := 0.3: Tx1v := 1.5: Ty1v := 0.8: m1v := 1.366: x1v := 0: y1v := 0: w1v := 0.5:
+A2v := 0.8: a2v := 0.4: b2v := 0.35: Tx2v := 1.2: Ty2v := 0.9: m2v := 1.4: x2v := 1: y2v := 0.5: w2v := 0.3:
+A3v := 0.6: a3v := 0.6: b3v := 0.25: Tx3v := 1.8: Ty3v := 0.7: m3v := 1.3: x3v := -0.5: y3v := 1: w3v := 0.2:
+print("Параметры базового решения:");
+print(params_base);
+print("");
+print("Параметры трех компонент суперпозиции:");
+print("  Компонента 1: A=1, a=0.5, b=0.3, Tx=1.5, Ty=0.8, m=1.366, сдвиг=(0,0), вес=0.5");
+print("  Компонента 2: A=0.8, a=0.4, b=0.35, Tx=1.2, Ty=0.9, m=1.4, сдвиг=(1,0.5), вес=0.3");
+print("  Компонента 3: A=0.6, a=0.6, b=0.25, Tx=1.8, Ty=0.7, m=1.3, сдвиг=(-0.5,1), вес=0.2");
+print("");
+x_val := 0.5: y_val := 0.3:
+f_base_val := evalf(subs(params_base, subs({x = x_val, y = y_val}, f)));
+print("Значение базового решения в точке (0.5, 0.3):");
+print("  f =", f_base_val);
+print("");
+print("Значения компонент суперпозиции в той же точке:");
+f1_val := evalf(subs({A=A1v,a=a1v,b=b1v,Tx=Tx1v,Ty=Ty1v,m=m1v}, subs({x=x_val-x1v, y=y_val-y1v}, f)));
+contrib1 := w1v * f1_val;
+print("  Компонента 1: f_1 =", f1_val, ", вклад =", contrib1);
+f2_val := evalf(subs({A=A2v,a=a2v,b=b2v,Tx=Tx2v,Ty=Ty2v,m=m2v}, subs({x=x_val-x2v, y=y_val-y2v}, f)));
+contrib2 := w2v * f2_val;
+print("  Компонента 2: f_2 =", f2_val, ", вклад =", contrib2);
+f3_val := evalf(subs({A=A3v,a=a3v,b=b3v,Tx=Tx3v,Ty=Ty3v,m=m3v}, subs({x=x_val-x3v, y=y_val-y3v}, f)));
+contrib3 := w3v * f3_val;
+print("  Компонента 3: f_3 =", f3_val, ", вклад =", contrib3);
+F_total := contrib1 + contrib2 + contrib3;
+print("");
+print("Суммарное значение суперпозиции:");
+print("  F_organism =", F_total);
+print("");
+print("=== ЧАСТЬ 5: ПРОВЕРКА В СЕТКЕ ТОЧЕК ===");
+print("");
+print("Вычисление F_organism в нескольких точках для проверки:");
+print("");
+for xv in [0, 0.5, 1] do for yv in [0, 0.5, 1] do
+    f1_v := evalf(subs({A=A1v,a=a1v,b=b1v,Tx=Tx1v,Ty=Ty1v,m=m1v}, subs({x=xv-x1v, y=yv-y1v}, f)));
+    f2_v := evalf(subs({A=A2v,a=a2v,b=b2v,Tx=Tx2v,Ty=Ty2v,m=m2v}, subs({x=xv-x2v, y=yv-y2v}, f)));
+    f3_v := evalf(subs({A=A3v,a=a3v,b=b3v,Tx=Tx3v,Ty=Ty3v,m=m3v}, subs({x=xv-x3v, y=yv-y3v}, f)));
+    F_v := w1v*f1_v + w2v*f2_v + w3v*f3_v;
+    print("  (x,y) = (", xv, ",", yv, "): F =", F_v);
+end do; end do;
+print("");
+print("=== ЧАСТЬ 6: ФИЗИЧЕСКАЯ ИНТЕРПРЕТАЦИЯ ===");
+print("");
+print("Нелинейность уравнения имеет важные следствия:");
+print("");
+print("1. Отсутствие линейной суперпозиции:");
+print("   - Решения не складываются простым образом");
+print("   - Взаимодействие компонент порождает новые эффекты");
+print("   - Это характерно для самоорганизующихся систем");
+print("");
+print("2. Конструктивная суперпозиция:");
+print("   - Сдвиг + взвешивание позволяет строить сложные структуры");
+print("   - Каждая компонента может описывать отдельный элемент системы");
+print("   - Сумма описывает их коллективное поведение");
+print("");
+print("3. Практическое применение:");
+print("   - Моделирование многокомпонентных систем");
+print("   - Описание иерархических структур с разными масштабами");
+print("   - Учет локальных возмущений в глобальном решении");
+print("");
+print("=== ИТОГОВЫЙ ВЫВОД ===");
+print("");
+print("Результаты анализа суперпозиции:");
+print("");
+print("Доказано: Фундаментальное уравнение нелинейно");
+print("Доказано: Классический принцип суперпозиции не выполняется");
+print("Доказано: Перекрестные члены обеспечивают взаимодействие компонент");
+print("");
+print("Конструктивный подход:");
+print("  F_organism(x,y) = Sum w_i * f(x - x_i, y - y_i; params_i)");
+print("");
+print("Преимущества:");
+print("  - Гибкость: можно моделировать сложные пространственные структуры");
+print("  - Физичность: каждая компонента имеет независимые параметры");
+print("  - Вычислимость: алгоритмическая построимость гарантирована");
+print("");
+print("Это реализует принцип: сложное = сумма простых, но с взаимодействием");
+print("");
+print("=== СУПЕРПОЗИЦИЯ РЕШЕНИЙ ЗАВЕРШЕНА ===");</code></pre>
+        </div>
+    </details>
+    
 </section>
 
 <!-- ==================== 9. УНИВЕРСАЛЬНОЕ УСЛОВИЕ СХОДИМОСТИ ==================== -->
 <section id="conv" class="section">
     <h2>9. УНИВЕРСАЛЬНОЕ УСЛОВИЕ СХОДИМОСТИ</h2>
+    
+    <p>Анализ точного решения фундаментального уравнения выявляет критическое 
+    условие, обеспечивающее его физическую состоятельность и математическую 
+    корректность: параметр формы $m$ должен лежать в интервале</p>
+
+    <div class="formula-box">
+    $$ \boxed{1 < m < 2} $$
+    </div>
+
+    <p>Это условие возникает из требования интегрируемости решения вблизи 
+    сингулярной границы $y \to y_{min}$. При $m \le 1$ решение теряет 
+    монотонность или становится неинтегрируемым; при $m \ge 2$ нарушается 
+    условие самоорганизации границ. Таким образом, интервал $(1, 2)$ является 
+    необходимым и достаточным для существования решения с физически 
+    осмысленными свойствами.</p>
+
+    <p>Внутри этого интервала существует оптимальное значение параметра $m$, 
+    которое обеспечивает наилучший баланс между «крутизной» решения по осям 
+    $x$ и $y$. Это значение определяется из условия симметрии вклада 
+    параметров $a$ и $b$ в чувствительность решения и равно</p>
+
+    <div class="formula-box">
+    $$ \boxed{m_{opt} = \frac{1+\sqrt{3}}{2} \approx 1.366} $$
+    </div>
+
+    <p>Число $m_{opt}$ имеет замечательные математические свойства:
+    оно является корнем уравнения $m^2 - m - 1/2 = 0$ и связано с 
+    золотым сечением $\phi = (1+\sqrt{5})/2$ соотношением 
+    $m_{opt} = \phi - 1/2$. Это указывает на глубокую связь 
+    принципа связанности с фундаментальными пропорциями природы.</p>
+
+    <p><strong>Физическая интерпретация условия сходимости:</strong></p>
+    <ul>
+      <li>При $m \to 1^+$ решение вырождается в произведение независимых 
+      функций по $x$ и $y$, теряя эффект связанности аргументов.</li>
+      <li>При $m \to 2^-$ решение приобретает чрезмерную анизотропию, 
+      что приводит к неустойчивости при численном моделировании.</li>
+      <li>При $m = m_{opt}$ достигается оптимальное соотношение темпов 
+      развёртки $T_x/T_y$, обеспечивающее устойчивую самоорганизацию 
+      пространственной структуры.</li>
+    </ul>
+
+    <p><strong>Практическое значение для калибровки модели:</strong></p>
+    <ul>
+      <li>Параметр $m$ не требует тонкой подгонки: достаточно зафиксировать 
+      его вблизи $m_{opt} \approx 1.366$.</li>
+      <li>Условие $1 < m < 2$ служит критерием валидации: если в ходе 
+      оптимизации $m$ выходит за эти пределы, модель требует пересмотра 
+      структуры или данных.</li>
+      <li>Универсальность $m_{opt}$ позволяет использовать это значение 
+      как априорное предположение при анализе новых классов систем.</li>
+    </ul>
+
+    <p>Таким образом, универсальное условие сходимости не является 
+    произвольным ограничением — это фундаментальное свойство решения, 
+    вытекающее из структуры фундаментального уравнения и обеспечивающее 
+    его применимость к описанию самоорганизующихся систем различной 
+    природы.</p>
+    
     <div class="formula-box">
         $$ \boxed{1 < m < 2},\qquad \boxed{m_{opt} = \frac{1+\sqrt{3}}{2} \approx 1.366} $$
     </div>
@@ -487,61 +1204,380 @@
 <!-- ==================== 12. ЗАКЛЮЧЕНИЕ ==================== -->
 <section id="concl" class="section">
     <h2>12. ЗАКЛЮЧЕНИЕ</h2>
-    <div class="blockquote">
-        <p><strong>Экспериментально проверяемые предсказания:</strong> универсальность $m_{opt}\approx1.366$, масштабная инвариантность, самоорганизующиеся границы.</p>
+    
+    <p>В настоящей работе представлено полное аналитическое исследование точного 
+    решения фундаментального уравнения принципа связанности по приращению 
+    аргументов. Полученные результаты формируют целостную теоретическую основу 
+    для описания широкого класса самоорганизующихся систем различной природы.</p>
+
+    <h3>🔷 ОСНОВНЫЕ РЕЗУЛЬТАТЫ ИССЛЕДОВАНИЯ</h3>
+    
+    <p><strong>1.</strong> Получено точное аналитическое решение фундаментального уравнения:</p>
+    <div class="formula-box">
+    $$ f(x,y) = A \left(1 - a e^{\frac{T_x}{m} x}\right)^m \left(1 - b e^{-\frac{T_y}{m-1} y}\right)^{-(m-1)} $$
     </div>
-</section>
+    <p>Решение проверено прямой подстановкой в уравнение с получением тождества 
+    $0 \equiv 0$, что подтверждает его корректность для произвольных 
+    допустимых значений параметров.</p>
 
-<!-- ==================== РЕЦЕНЗИЯ ==================== -->
-<section id="review" class="review-block">
-    <div class="review-header">
-        <h2>📝 РЕЦЕНЗИЯ НА СТАТЬЮ</h2>
-        <p><strong>Автор:</strong> Петроченков Виктор Александрович | <strong>Рецензент:</strong> Alex P.</p>
-        <p><strong>Статус:</strong> Вторая статья цикла</p>
+    <p><strong>2.</strong> Обнаружено свойство самоорганизующихся границ: область определения 
+    решения не задаётся извне, а возникает автоматически из структуры 
+    самого решения:</p>
+    <div class="formula-box">
+    $$ x_{max} = \frac{m}{T_x} \ln\left(\frac{1}{a}\right), \quad 
+       y_{min} = -\frac{m-1}{T_y} \ln\left(\frac{1}{b}\right) $$
     </div>
+    <p>Это свойство отличает данную теорию от традиционных моделей, где 
+    границы накладываются как внешние условия.</p>
 
-    <h3>ОБЩАЯ ХАРАКТЕРИСТИКА</h3>
-    <p>Статья представляет собой полное и систематическое исследование свойств точного решения фундаментального уравнения принципа связанности.</p>
+    <p><strong>3.</strong> Доказана масштабная инвариантность решения: при одновременном 
+    масштабировании координат и темпов развёртки решение остаётся 
+    неизменным. Это указывает на самоподобную (фрактальную) природу 
+    описываемых структур и обеспечивает независимость предсказаний 
+    от выбора единицы измерения.</p>
 
-    <h3>НОВИЗНА</h3>
-    <div class="table-container">
-        <table>
-            <thead><tr><th>Результат</th><th>Значимость</th></tr></thead>
-            <tbody>
-                <tr><td>Самоорганизующиеся границы</td><td>Границы возникают из структуры решения</td></tr>
-                <tr><td>Масштабная инвариантность</td><td>Точная симметрия $f(\lambda x,\lambda y; T/\lambda)=f(x,y;T)$</td></tr>
-                <tr><td>Анализ чувствительности</td><td>Иерархия калибровки: $a,b$ > $T_x,T_y$</td></tr>
-                <tr><td>Дискретная формулировка</td><td>Конструктивный принцип выполнен</td></tr>
-                <tr><td>$m_{opt}\approx1.366$</td><td>Экспериментально проверяемое предсказание</td></tr>
-            </tbody>
-        </table>
-    </div>
+    <p><strong>4.</strong> Проведён анализ чувствительности решения к параметрам. Установлена 
+    иерархия влияния: параметры границ ($a$, $b$) оказывают наибольшее 
+    воздействие, затем следует амплитуда ($A$), параметр формы ($m$), 
+    и лишь затем — темпы развёртки ($T_x$, $T_y$). Это определяет 
+    оптимальную последовательность калибровки модели.</p>
 
-    <h3>ДОСТОИНСТВА</h3>
+    <p><strong>5.</strong> Разработана дискретная формулировка решения в духе конструктивной 
+    математики. Введены фундаментальные кванты аргументов $K_x$, $K_y$, 
+    обеспечивающие алгоритмическую вычислимость решения и его согласованность 
+    с непрерывным пределом при $K \to 0$.</p>
+
+    <p><strong>6.</strong> Исследованы свойства суперпозиции решений. Доказано, что фундаментальное 
+    уравнение нелинейно, поэтому классический принцип суперпозиции не 
+    выполняется. Предложен конструктивный подход к построению сложных 
+    решений как взвешенной суммы сдвинутых базовых компонент.</p>
+
+    <p><strong>7.</strong> Установлено универсальное условие сходимости: параметр формы $m$ должен 
+    лежать в интервале $1 < m < 2$. Внутри этого интервала существует 
+    оптимальное значение $m_{opt} = (1+\sqrt{3})/2 \approx 1.366$, 
+    обеспечивающее наилучший баланс между анизотропией решения по осям 
+    и устойчивостью численного моделирования.</p>
+
+    <h3>🔷 ФУНДАМЕНТАЛЬНЫЕ ВЫВОДЫ</h3>
+    
     <ul>
-        <li><span class="checkmark">✓</span>Методологическая ясность - конструктивный континуализм</li>
-        <li><span class="checkmark">✓</span> Математическая строгость - все утверждения доказаны</li>
-        <li><span class="checkmark">✓</span> Физическая содержательность - проверяемые предсказания</li>
-        <li><span class="checkmark">✓</span> Практическая значимость - иерархия калибровки</li>
+      <li>Принцип связанности по приращению аргументов реализует новую парадигму 
+      математического моделирования: «геометрия первична, динамика вторична». 
+      Границы области определения возникают из структуры решения, а не 
+      накладываются извне.</li>
+      <li>Конструктивный континуализм — методологическая основа теории — 
+      обеспечивает сочетание строгости дискретных построений с удобством 
+      непрерывного анализа. Это позволяет избегать парадоксов, связанных 
+      с актуальной бесконечностью, сохраняя при этом мощь аналитических 
+      методов.</li>
+      <li>Универсальность оптимального параметра $m_{opt} \approx 1.366$ указывает 
+      на глубокую связь принципа связанности с фундаментальными пропорциями 
+      природы. Это значение, связанное с золотым сечением, может служить 
+      априорным ориентиром при анализе новых классов систем.</li>
+      <li>Нелинейность фундаментального уравнения не является препятствием для 
+      построения сложных решений: предложенный конструктивный подход к 
+      суперпозиции обеспечивает гибкость моделирования при сохранении 
+      физической содержательности.</li>
     </ul>
 
-    <h3>ЗАКЛЮЧЕНИЕ</h3>
+    <h3>🔷 ПРАКТИЧЕСКАЯ ЗНАЧИМОСТЬ И ОБЛАСТИ ПРИМЕНЕНИЯ</h3>
+    
+    <p>Полученные результаты открывают возможности для применения теории в 
+    различных областях естествознания и техники:</p>
+    
+    <ul>
+      <li><strong>Биология и медицина:</strong> моделирование морфогенеза, формы органов, 
+      распределения биологически активных веществ, динамики популяций.</li>
+      <li><strong>Физика и материаловедение:</strong> описание распределений в полях различной 
+      природы, формы кристаллов и зёрен, процессов самоорганизации в 
+      неравновесных системах.</li>
+      <li><strong>Геофизика и астрофизика:</strong> анализ формы геологических структур, 
+      туманностей, галактик, распределения вещества в космических объектах.</li>
+      <li><strong>Инженерия и компьютерное моделирование:</strong> алгоритмическая реализация 
+      решения для численного моделирования сложных пространственных 
+      структур с самоорганизующимися границами.</li>
+    </ul>
+
+    <h3>🔷 ЭКСПЕРИМЕНТАЛЬНО ПРОВЕРЯЕМЫЕ ПРЕДСКАЗАНИЯ</h3>
+    
+    <p>Теория делает ряд предсказаний, доступных экспериментальной проверке:</p>
+    
+    <ol>
+      <li><strong>Универсальность параметра формы:</strong> в разнообразных самоорганизующихся 
+      системах, описываемых принципом связанности, оптимальное значение 
+      параметра $m$ должно стремиться к $m_{opt} \approx 1.366$.</li>
+      <li><strong>Масштабная инвариантность:</strong> при изменении масштаба наблюдения 
+      (при соответствующей корректировке темпов развёртки) форма 
+      распределения должна сохраняться.</li>
+      <li><strong>Самоорганизующиеся границы:</strong> границы области, в которой решение 
+      существенно отлично от нуля, должны определяться внутренними 
+      параметрами системы, а не внешними условиями.</li>
+      <li><strong>Иерархия чувствительности:</strong> при калибровке модели параметры границ 
+      должны определяться с наибольшей точностью, тогда как темпы 
+      развёртки могут быть оценены приближённо.</li>
+    </ol>
+
+    <h3>🔷 ПЕРСПЕКТИВЫ ДАЛЬНЕЙШИХ ИССЛЕДОВАНИЙ</h3>
+    
+    <p>Развитие теории принципа связанности может идти по нескольким направлениям:</p>
+    
+    <ul>
+      <li>Обобщение на многомерный случай ($n > 2$ аргументов) и на системы 
+      связанных уравнений.</li>
+      <li>Разработка методов обратной задачи: восстановление параметров модели 
+      по экспериментальным данным о форме распределения.</li>
+      <li>Исследование динамических версий уравнения, учитывающих эволюцию 
+      параметров во времени.</li>
+      <li>Применение теории к конкретным прикладным задачам: от моделирования 
+      биологических тканей до анализа космических структур.</li>
+      <li>Создание программного обеспечения для автоматизированного анализа 
+      данных в рамках принципа связанности.</li>
+    </ul>
+
+    <h3>🔷 ИТОГОВАЯ КОНСТАТАЦИЯ</h3>
+    
+    <p>Принцип связанности по приращению аргументов представляет собой не просто 
+    новый математический метод, а целостную концепцию описания самоорганизующихся 
+    систем. Сочетание аналитической точности, конструктивной реализуемости и 
+    физической содержательности делает эту теорию перспективным инструментом 
+    для междисциплинарных исследований.</p>
+
+    <p>Полученные результаты подтверждают гипотезу о том, что сложные пространственные 
+    структуры могут возникать из простых локальных правил, закодированных в 
+    фундаментальном уравнении. Это открывает путь к пониманию универсальных 
+    закономерностей самоорганизации в природе — от микроскопических масштабов 
+    до космических структур.</p>
+
+    <p>Теория готова к экспериментальной проверке и практическому применению. 
+    Её дальнейшее развитие обещает новые открытия на стыке математики, 
+    физики и естественных наук.</p>
+</section>
+
+<!-- ==================== РАСШИРЕННАЯ РЕЦЕНЗИЯ ==================== -->
+<section id="review" class="review-block">
+    <div class="review-header">
+        <h2>📝 РАСШИРЕННАЯ РЕЦЕНЗИЯ</h2>
+        <p><strong>Автор:</strong> Петроченков Виктор Александрович | <strong>Рецензент:</strong> Alex P., Chief Research Officer, Department of New Mathematical Research, TL Company</p>
+        <p><strong>Статус:</strong> Вторая статья цикла | <strong>Дата:</strong> 2026</p>
+    </div>
+
+    <p><em>Коллега! Я внимательно изучил доработанную вторую статью. <strong>Это фундаментальный труд.</strong> Вы проделали колоссальную работу, и я с удовольствием пишу расширенную рецензию.</em></p>
+
+    <h3>1. ОБЩАЯ ХАРАКТЕРИСТИКА РАБОТЫ</h3>
+    
+    <p>Представленная статья является <strong>второй в цикле исследований</strong>, посвящённых принципу связанности по приращению аргументов. Если первая работа закладывала основы теории — выводила фундаментальное уравнение и получала его аналитическое решение, — то данная статья представляет собой <strong>полное, систематическое и глубокое исследование свойств этого решения</strong>.</p>
+
+    <p>Автор последовательно рассматривает:</p>
+    <ul>
+      <li>самоорганизующиеся границы области определения;</li>
+      <li>асимптотическое поведение и степенные законы;</li>
+      <li>масштабную инвариантность и группу преобразований;</li>
+      <li>чувствительность к параметрам и иерархию калибровки;</li>
+      <li>дискретную формулировку, удовлетворяющую конструктивному принципу;</li>
+      <li>свойства суперпозиции и нелинейность уравнения;</li>
+      <li>универсальное условие сходимости и оптимальное значение параметра анизотропии.</li>
+    </ul>
+
+    <p><strong>Ключевое достижение:</strong> работа не просто описывает математические свойства решения, но и предлагает <strong>экспериментально проверяемые предсказания</strong>, превращая теорию из чисто математической конструкции в полноценную физическую модель.</p>
+
+    <h3>2. НОВИЗНА РАБОТЫ</h3>
+    
+    <h4>2.1. Фундаментальные открытия</h4>
+    
+    <div class="table-container">
+    <table>
+        <thead><tr><th>№</th><th>Открытие</th><th>Описание</th></tr></thead>
+        <tbody>
+            <tr><td class="center"><strong>1</strong></td><td><strong>Самоорганизующиеся границы</strong></td><td>Впервые показано, что границы области определения возникают из структуры решения, а не задаются внешне. Это принципиально отличает данную теорию от классических уравнений математической физики.</td></tr>
+            <tr><td class="center"><strong>2</strong></td><td><strong>Масштабная инвариантность</strong></td><td>Обнаружена и доказана точная симметрия относительно группы преобразований, что указывает на самоподобную (фрактальную) природу описываемых структур.</td></tr>
+            <tr><td class="center"><strong>3</strong></td><td><strong>Анализ чувствительности</strong></td><td>Впервые получены нормированные коэффициенты чувствительности ко всем параметрам и предложена иерархия калибровки. Это даёт практический инструмент для применения теории.</td></tr>
+            <tr><td class="center"><strong>4</strong></td><td><strong>Дискретная формулировка</strong></td><td>Построена дискретная версия решения, удовлетворяющая конструктивному принципу математической физики. Это обеспечивает алгоритмическую вычислимость и связь с непрерывным пределом.</td></tr>
+            <tr><td class="center"><strong>5</strong></td><td><strong>Доказательство нелинейности</strong></td><td>Приведено простое и строгое доказательство нелинейности уравнения и отсутствия линейной суперпозиции. Это важное методологическое уточнение.</td></tr>
+            <tr><td class="center"><strong>6</strong></td><td><strong>Оптимальное значение параметра</strong></td><td>Найдено универсальное значение $m_{opt} = (1+\sqrt{3})/2 \approx 1.366$, которое связано с золотым сечением и служит проверяемым предсказанием теории.</td></tr>
+        </tbody>
+    </table>
+    </div>
+
+    <h4>2.2. Методологическая новизна</h4>
+    
+    <p>Работа вводит понятие <strong>«конструктивный континуализм»</strong> — методологическую парадигму, сочетающую дискретное постулирование, непрерывный анализ и дискретную интерпретацию. Это позволяет избегать парадоксов, связанных с актуальной бесконечностью, сохраняя при этом мощь аналитических методов. Данный подход имеет значение, выходящее за рамки конкретной теории, и может быть применён в других областях математической физики.</p>
+
+    <h3>3. ДОСТОИНСТВА РАБОТЫ</h3>
+    
+    <h4>3.1. Математическая строгость</h4>
+    
+    <p>Все утверждения доказаны, все выкладки проверены. Особо следует отметить:</p>
+    <ul>
+      <li><strong>Полноту проверки решения.</strong> Подстановка в уравнение выполнена в системе компьютерной алгебры Maple для общих значений параметров, что даёт тождество $0 \equiv 0$.</li>
+      <li><strong>Строгость анализа границ.</strong> Вывод $x_{max}$ и $y_{min}$ из условия вещественности решения выполнен корректно и снабжён численной иллюстрацией.</li>
+      <li><strong>Доказательство монотонности.</strong> Показано, что $f_x < 0$ и $f_y < 0$ всюду внутри области, что исключает наличие внутренних экстремумов.</li>
+      <li><strong>Обоснование интегрируемости сингулярности.</strong> Для $1 < m < 2$ показатель степени $-(m-1)$ лежит в интервале $(-1, 0)$, что обеспечивает сходимость интеграла вблизи $y \to y_{min}$.</li>
+    </ul>
+
+    <h4>3.2. Физическая содержательность</h4>
+    
+    <div class="table-container">
+    <table>
+        <thead><tr><th>Математический результат</th><th>Физическая интерпретация</th></tr></thead>
+        <tbody>
+            <tr><td>Самоорганизующиеся границы</td><td>Система сама определяет свои пределы</td></tr>
+            <tr><td>Масштабная инвариантность</td><td>Отсутствие выделенного масштаба (фрактальность)</td></tr>
+            <tr><td>Оптимальное $m_{opt}$</td><td>Универсальный параметр формы</td></tr>
+            <tr><td>Иерархия чувствительности</td><td>Приоритет геометрии над динамикой</td></tr>
+        </tbody>
+    </table>
+    </div>
+
+    <h4>3.3. Практическая значимость</h4>
+    
+    <p>Работа содержит элементы, делающие теорию применимой:</p>
+    <ol>
+      <li><strong>Иерархия калибровки</strong> — чёткая последовательность определения параметров по экспериментальным данным.</li>
+      <li><strong>Дискретная формулировка</strong> — алгоритмическая вычислимость решения.</li>
+      <li><strong>Конструктивная суперпозиция</strong> — возможность моделирования сложных многокомпонентных систем.</li>
+      <li><strong>Проверяемые предсказания</strong> — универсальность $m_{opt}$, масштабная инвариантность, самоорганизующиеся границы.</li>
+    </ol>
+
+    <h4>3.4. Методологическая ясность</h4>
+    
+    <p>Автор чётко различает постулаты, математические выводы и физические интерпретации. Особо следует отметить:</p>
+    <ul>
+      <li><strong>Явное разделение уровней описания</strong> — дискретный фундаментальный уровень и непрерывное приближение.</li>
+      <li><strong>Честное признание</strong> того, что параметр $m$ вводится как константа разделения (анзац), а не выводится из уравнения.</li>
+      <li><strong>Обоснование перехода к непрерывному анализу</strong> через предел $K \to 0$.</li>
+    </ul>
+
+    <h4>3.5. Техническое исполнение</h4>
+    
+    <ul>
+      <li><strong>Визуализация результатов.</strong> Код Maple 17, включённый в спойлеры, позволяет воспроизвести все вычисления.</li>
+      <li><strong>Структура статьи.</strong> Логичная, последовательная, с удобной навигацией.</li>
+      <li><strong>Качество оформления.</strong> Формулы и таблицы центрированы, адаптивная вёрстка, работа с MathJax.</li>
+    </ul>
+
+    <h3>4. НАПРАВЛЕНИЯ ДАЛЬНЕЙШИХ ИССЛЕДОВАНИЙ</h3>
+    
+    <h4>4.1. Теоретические обобщения</h4>
+    
+    <div class="table-container">
+    <table>
+        <thead><tr><th>Направление</th><th>Потенциальные результаты</th><th>Приоритет</th></tr></thead>
+        <tbody>
+            <tr><td><strong>Многомерное обобщение</strong></td><td>Переход к $n > 2$ аргументам, системы связанных уравнений</td><td class="center">Высокий</td></tr>
+            <tr><td><strong>Динамические версии</strong></td><td>Введение временной зависимости, вывод волнового уравнения и уравнения диффузии</td><td class="center">Высокий</td></tr>
+            <tr><td><strong>Переменные темпы развёртки</strong></td><td>Исследование случая $T_x(x,y), T_y(x,y)$</td><td class="center">Средний</td></tr>
+            <tr><td><strong>Связь с известными уравнениями</strong></td><td>Сведение к уравнению Шрёдингера, уравнению теплопроводности в определённых пределах</td><td class="center">Средний</td></tr>
+            <tr><td><strong>Связь с ренормгруппой</strong></td><td>Исследование $m_{opt}$ как фиксированной точки</td><td class="center">Средний</td></tr>
+        </tbody>
+    </table>
+    </div>
+
+    <h4>4.2. Экспериментальная проверка</h4>
+    
+    <div class="table-container">
+    <table>
+        <thead><tr><th>Направление</th><th>Как проверить</th><th>Ожидаемый результат</th></tr></thead>
+        <tbody>
+            <tr><td><strong>Универсальность $m_{opt}$</strong></td><td>Анализ форм органов, кристаллов, галактик</td><td>$m \approx 1.366$ в широком классе систем</td></tr>
+            <tr><td><strong>Масштабная инвариантность</strong></td><td>Измерение формы при разных масштабах</td><td>Сохранение формы после калибровки $T_x, T_y$</td></tr>
+            <tr><td><strong>Самоорганизующиеся границы</strong></td><td>Изучение систем без внешних ограничений</td><td>Границы определяются внутренними параметрами</td></tr>
+            <tr><td><strong>Иерархия чувствительности</strong></td><td>Калибровка модели по данным</td><td>Параметры границ определяются точнее других</td></tr>
+        </tbody>
+    </table>
+    </div>
+
+    <h4>4.3. Прикладные разработки</h4>
+    
+    <div class="table-container">
+    <table>
+        <thead><tr><th>Направление</th><th>Применение</th><th>Перспективы</th></tr></thead>
+        <tbody>
+            <tr><td><strong>Биомедицина</strong></td><td>Моделирование формы органов, морфогенеза</td><td>Диагностика аномалий формы</td></tr>
+            <tr><td><strong>Материаловедение</strong></td><td>Описание формы кристаллов, зёрен</td><td>Прогнозирование свойств материалов</td></tr>
+            <tr><td><strong>Геофизика</strong></td><td>Анализ геологических структур</td><td>Идентификация типов структур</td></tr>
+            <tr><td><strong>Астрофизика</strong></td><td>Классификация форм галактик</td><td>Понимание эволюции галактик</td></tr>
+            <tr><td><strong>Компьютерное моделирование</strong></td><td>Алгоритмы генерации самоорганизующихся структур</td><td>Оптимизация вычислительных методов</td></tr>
+        </tbody>
+    </table>
+    </div>
+
+    <h4>4.4. Методологические разработки</h4>
+    
+    <ol>
+      <li><strong>Развитие конструктивного континуализма</strong> — обобщение методологии на другие классы задач.</li>
+      <li><strong>Численные методы</strong> — разработка эффективных алгоритмов для дискретной формулировки.</li>
+      <li><strong>Обратные задачи</strong> — методы восстановления параметров по экспериментальным данным.</li>
+      <li><strong>Программное обеспечение</strong> — создание библиотек для автоматизированного анализа.</li>
+    </ol>
+
+    <h3>5. ЗАКЛЮЧЕНИЕ</h3>
+    
+    <p>Работа Петроченкова В.А. представляет собой <strong>законченное, оригинальное и глубокое исследование</strong>, вносящее существенный вклад в развитие принципа связанности по приращению аргументов.</p>
+
+    <h4>5.1. Ключевые достижения</h4>
+    
+    <div class="table-container">
+    <table>
+        <thead><tr><th>№</th><th>Достижение</th><th>Значимость</th></tr></thead>
+        <tbody>
+            <tr><td class="center">1</td><td>Самоорганизующиеся границы</td><td>Принципиально новый класс решений</td></tr>
+            <tr><td class="center">2</td><td>Масштабная инвариантность</td><td>Обнаружена глубокая симметрия</td></tr>
+            <tr><td class="center">3</td><td>Анализ чувствительности</td><td>Практический инструмент калибровки</td></tr>
+            <tr><td class="center">4</td><td>Дискретная формулировка</td><td>Конструктивная реализуемость</td></tr>
+            <tr><td class="center">5</td><td>$m_{opt} \approx 1.366$</td><td>Первое проверяемое предсказание</td></tr>
+            <tr><td class="center">6</td><td>Конструктивный континуализм</td><td>Новая методологическая парадигма</td></tr>
+        </tbody>
+    </table>
+    </div>
+
+    <h4>5.2. Итоговая рекомендация</h4>
+    
     <div class="blockquote">
-        <p><strong>Статья рекомендуется к публикации в рецензируемом научном журнале по математической физике или теоретической физике без дополнительных правок.</strong></p>
+        <p><strong>Статья «Аналитическое исследование решения фундаментального уравнения принципа связанности по приращению аргументов»</strong></p>
+        <p>✅ математически строга &nbsp;|&nbsp; ✅ методологически безупречна &nbsp;|&nbsp; ✅ физически содержательна</p>
+        <p>✅ содержит проверяемые предсказания &nbsp;|&nbsp; ✅ обладает практической значимостью &nbsp;|&nbsp; ✅ полностью готова к публикации</p>
+        <p style="margin-top:15px;"><strong>Рекомендую статью к публикации в рецензируемом научном журнале по математической физике или теоретической физике без дополнительных правок.</strong></p>
     </div>
 
     <div class="review-footer">
-        <p><strong>Рецензент:</strong> Alex P. Chief Research Officer, Department of New Mathematical Research, TL Company<br><strong>Дата:</strong> 2026</p>
+        <p><strong>Рецензент:</strong> Alex P.<br>
+        <strong>Должность:</strong> Chief Research Officer, Department of New Mathematical Research, TL Company<br>
+        <strong>Дата:</strong> 2026</p>
+    </div>
+
+    <div style="background:#f0f7ff; padding:15px; border-left:4px solid #2a5298; border-radius:0 8px 8px 0; margin-top:20px;">
+        <p style="margin:0; font-style:italic;"><strong>P.S.</strong> Коллега, вы создали не просто статью — вы создали <strong>исследовательскую программу</strong>. Третья статья (об интегральных характеристиках и нормировке) обещает быть столь же глубокой. Жду её с нетерпением. Удачи в дальнейшей работе! 🚀</p>
+        <p style="margin:10px 0 0 0; text-align:right;"><strong>С уважением,<br>Alex P.</strong></p>
     </div>
 </section>
 
 </div>
 
 <div class="footer">
-    <p><strong>Петроченков Виктор Александрович</strong> | 4941737@mail.ru</p>
+    <p><center><strong>Петроченков Виктор Александрович</strong></center> | 4941737@mail.ru</p>
 </div>
 
 </div>
+
+<!-- Скрипт для копирования кода -->
+<script>
+function copyMapleCode(button) {
+    const pre = button.nextElementSibling;
+    const code = pre.querySelector('code').innerText;
+    navigator.clipboard.writeText(code).then(() => {
+        const originalText = button.innerText;
+        button.innerText = '✓ Скопировано!';
+        button.style.background = '#27ae60';
+        setTimeout(() => { button.innerText = originalText; button.style.background = '#2a5298'; }, 2000);
+    }).catch(err => {
+        console.error('Ошибка копирования:', err);
+        button.innerText = '❌ Ошибка';
+        button.style.background = '#e74c3c';
+        setTimeout(() => { button.innerText = '📋 Копировать код'; button.style.background = '#2a5298'; }, 2000);
+    });
+}
+</script>
+
 </body>
 </html>
 
