@@ -12,11 +12,11 @@
         }
 
         body {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            background-color: #faf9f6;
+            font-family: 'Georgia', 'Times New Roman', 'Palatino Linotype', serif;
+            background-color: #f8f7f4;
             color: #1e1e1e;
-            line-height: 1.7;
-            padding: 3rem 1.5rem;
+            line-height: 1.8;
+            padding: 2rem 1rem;
             display: flex;
             justify-content: center;
         }
@@ -24,32 +24,35 @@
         .container {
             max-width: 780px;
             width: 100%;
-            background-color: #ffffff;
-            padding: 3.5rem 2.5rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-            border-radius: 4px;
+            background: #ffffff;
+            padding: 2.5rem 2rem;
+            border-radius: 6px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
         }
 
+        /* Заголовок — строго по центру */
         h1 {
-            font-size: 2rem;
-            font-weight: 600;
-            letter-spacing: -0.3px;
+            font-size: 2.2rem;
+            font-weight: 700;
             line-height: 1.3;
-            margin-bottom: 0.4rem;
+            text-align: center;
+            letter-spacing: -0.3px;
+            margin: 0 0 0.25rem 0;
             color: #0b0b0b;
         }
 
-        .subhead {
-            font-size: 0.95rem;
-            color: #4a4a4a;
-            border-bottom: 1px solid #e6e4df;
-            padding-bottom: 1.5rem;
+        .author-line {
+            text-align: center;
+            font-size: 1rem;
+            color: #3e3e3e;
+            border-bottom: 1px solid #e0ddd7;
+            padding-bottom: 1.8rem;
             margin-bottom: 2rem;
             font-style: italic;
         }
 
         h2 {
-            font-size: 1.3rem;
+            font-size: 1.35rem;
             font-weight: 600;
             margin-top: 2.2rem;
             margin-bottom: 0.6rem;
@@ -63,24 +66,23 @@
         }
 
         .ref-block {
-            margin-top: 2.5rem;
-            padding-top: 1.8rem;
-            border-top: 1px solid #e0ddd7;
-            font-size: 0.95rem;
-            background-color: #f8f7f4;
+            margin-top: 2.8rem;
             padding: 1.5rem 1.8rem;
+            background: #f3f2ef;
             border-radius: 6px;
+            border-left: 4px solid #7a8a9a;
+            font-size: 0.95rem;
         }
 
         .ref-block strong {
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .ref-block a {
             color: #1a4c7a;
             text-decoration: none;
             border-bottom: 1px dotted #8aa9c9;
-            transition: border-color 0.2s;
+            transition: border-color 0.15s;
         }
 
         .ref-block a:hover {
@@ -89,31 +91,56 @@
 
         .ref-block .url {
             display: block;
-            margin-top: 0.3rem;
-            font-size: 0.85rem;
+            margin-top: 0.4rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
             color: #4a4a4a;
             word-break: break-all;
-            font-family: 'Courier New', monospace;
         }
 
         .footer-note {
-            margin-top: 1.8rem;
+            margin-top: 2rem;
+            text-align: center;
             font-size: 0.85rem;
             color: #6b6b6b;
-            text-align: center;
             border-top: 1px solid #eae8e3;
             padding-top: 1.5rem;
         }
 
+        /* Адаптация для смартфонов */
         @media (max-width: 600px) {
             body {
-                padding: 1rem 0.8rem;
+                padding: 0.8rem 0.6rem;
             }
             .container {
-                padding: 2rem 1.2rem;
+                padding: 1.8rem 1.2rem;
             }
             h1 {
-                font-size: 1.6rem;
+                font-size: 1.7rem;
+                letter-spacing: -0.2px;
+            }
+            .author-line {
+                font-size: 0.9rem;
+                padding-bottom: 1.2rem;
+                margin-bottom: 1.5rem;
+            }
+            h2 {
+                font-size: 1.2rem;
+            }
+            .ref-block {
+                padding: 1.2rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            h1 {
+                font-size: 1.4rem;
+            }
+            .container {
+                padding: 1.2rem 0.9rem;
+            }
+            p {
+                text-align: left;
             }
         }
     </style>
@@ -121,8 +148,9 @@
 <body>
 <div class="container">
 
+    <!-- Заголовок по центру -->
     <h1>Гёдель и конструктивная истина: о статусе утверждений, которые нельзя проверить конечным образом</h1>
-    <div class="subhead">Петроченков Виктор Александрович</div>
+    <div class="author-line">Петроченков Виктор Александрович</div>
 
     <h2>Введение</h2>
     <p>Теорема Гёделя о неполноте часто понимается как доказательство того, что существуют «истины», недоступные доказательству. Я предлагаю иной взгляд: проблема не в теореме, а в том, что мы называем «истиной».</p>
@@ -152,10 +180,10 @@
     <p>Теорема Гёделя — это не предел познания. Это предел определённого типа формальных систем. В конструктивной математике, где истина равна проверяемости, гёделевы утверждения не создают онтологических проблем, поскольку онтология конструктивной математики ограничивается тем, что может быть эффективно построено. Они просто указывают на границы формализации, а не на границы реальности.</p>
     <p>Я не опровергаю Гёделя. Я предлагаю иной способ его понимания: не как доказательство существования недоступных истин, а как указание на то, что формализация имеет пределы, которые мы можем принять без ущерба для нашей практики.</p>
 
-    <!-- Ссылка на работу об Архимеде -->
+    <!-- Блок ссылки на статью об Архимеде -->
     <div class="ref-block">
         <strong>Ссылка на работу «Аксиома Архимеда» (2026)</strong>
-        <p style="margin-top: 0.6rem; margin-bottom: 0.4rem; text-align: left;">
+        <p style="margin: 0.5rem 0 0.2rem 0; text-align: left;">
             В этой статье алгоритм работает с фактически заданными числами и всегда останавливается для каждого конкретного объекта. Это показывает, что мы можем строить математику на конструктивных основаниях, не нуждаясь в платонистских допущениях.
         </p>
         <a href="https://victorpetrochenkov.github.io/Peregrinus/index_02.html" target="_blank" rel="noopener noreferrer">
